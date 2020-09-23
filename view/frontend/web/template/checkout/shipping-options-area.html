@@ -1,0 +1,37 @@
+<div class="nrshipping-settings-container" data-bind="visible: visible">
+    <fieldset class="fieldset nrshipping-settings">
+        <img if="image()" data-bind="attr: {src: image}" width="150px" height="auto"/>
+        <h3 if="title()" text="title" class="title"/>
+
+        <!-- ko foreach: { data: commentsBefore, as: 'comment' } -->
+            <p>
+                <span data-bind="html: comment.content"/>
+                <span if="comment.hasFootnote" class="asterisk">*</span>
+            </p>
+        <!-- /ko -->
+        <!-- ko foreach: { data: elems, as: 'element' } -->
+            <render if="hasTemplate()"/>
+        <!-- /ko -->
+
+        <!-- ko if: footnotes -->
+        <!-- ko foreach: { data: footnotes, as: 'footnote' } -->
+            <p class="field-note">
+                <span class="asterisk">*</span>
+                <span data-bind="html: footnote.content"/>
+            </p>
+        <!-- /ko -->
+
+        <!-- /ko -->
+        <!-- ko foreach: { data: commentsAfter, as: 'comment' } -->
+            <p class="field-note">
+                <span data-bind="html: comment.content"/>
+            </p>
+        <!-- /ko -->
+        <!-- ko if: errors()-->
+            <!-- ko foreach: { data: errors, as: 'error' } -->
+            <label class="message error" text="error"/>
+            <!-- /ko -->
+        <!-- /ko -->
+    </fieldset>
+</div>
+<!-- /ko -->

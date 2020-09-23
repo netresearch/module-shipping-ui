@@ -21,4 +21,24 @@
     .icony(#afafaf);
 }
 
+.nrshipping-selected-services {
+    &:extend(.admin__page-section);
 
+    .section-title {
+        .admin__page-section-title();
+    }
+    .section-content {
+        .admin__page-section-content();
+
+        .section-item {
+            &:extend(.admin__page-section-item);
+
+            float: left;
+            #mix-grid .width(6,12);
+
+            .data-table {
+                .admin__table-secondary();
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+<div class="shopfinder-option">
+    <!-- ko ifnot: selectedLocation-->
+    <button type="button" id="showShopfinder" data-bind="click: openModal">
+        <span text="buttonLabel"></span>
+    </button>
+    <!-- /ko -->
+    <!-- ko if: selectedLocation -->
+    <button type="reset"
+            id="removeLocation"
+            class="action-remove-button"
+            data-bind="click: removeLocation"
+    >
+        <span class="action-remove" data-bind="i18n: 'Remove'"></span>
+    </button>
+    <div>
+        <div data-bind="if: selectedLocation().display_name">
+            <strong data-bind="text: selectedLocation().display_name"></strong>
+        </div>
+        <div data-bind="text: selectedLocation().address.company"></div>
+        <div data-bind="text: selectedLocation().address.street"></div>
+        <div>
+            <span data-bind="text: selectedLocation().address.postal_code"></span>
+            <span data-bind="text: selectedLocation().address.city"></span>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+<div id="modal-shopfinder" data-bind="afterRender: initModal">
+    <div id="modal-shopfinder-search">
+        <form data-bind="submit:updateLocations">
+            <div class="search-inputs">
+                <div>
+                    <label for="searchCountry">
+                        <span data-bind="i18n: 'Country'"></span>
+                    </label>
+                    <select id="searchCountry"
+                            class="select admin__control-select"
+                            data-bind="options: searchCountryOptions,
+                                optionsText: 'countryName',
+                                optionsValue: 'countryCode',
+                                value: searchCountry"
+                    ></select>
+                </div>
+                <div>
+                    <label for="searchCity">
+                        <span data-bind="i18n: 'City'"></span>
+                    </label>
+                    <input id="searchCity" type="text" data-bind="value: searchCity"/>
+                </div>
+                <div>
+                    <label for="searchZip">
+                        <span data-bind="i18n: 'Postcode'"></span>
+                    </label>
+                    <input id="searchZip" type="text" data-bind="value: searchZip"/>
+                </div>
+                <div>
+                    <label for="searchStreet">
+                        <span data-bind="i18n: 'Street'"></span>
+                    </label>
+                    <input id="searchStreet" type="text" data-bind="value: searchStreet"/>
+                </div>
+            </div>
+            <div class="message error" if="errorMessage">
+                <span text="errorMessage"/>
+            </div>
+            <button class="btn-primary" type="submit">
+                <span data-bind="i18n: 'Search'"></span>
+            </button>
+        </form>
+    </div>
+    <div id="modal-shopfinder-map"></div>
+</div>
