@@ -31,7 +31,7 @@
             <span class="value" data-bind="text: getShippingMethodTitle()"></span>
         </div>
         <!-- ko if: loadDisplayData() -->
-        <div class="nrshipping-option-selections-content">
+        <div class="nrshipping-option-selections-content" data-bind="style: {borderColor: displayColor()}">
             <h4 data-bind="text: displayTitle"></h4>
             <ul data-bind="foreach: displayData">
                 <li>

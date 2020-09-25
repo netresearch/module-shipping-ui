@@ -31,6 +31,7 @@ define([
      *         comments_before: NrShippingComment[],
      *         image_url: string,
      *         title: string,
+     *         color: string,
      *         footnotes: NrShippingFootnote[],
      *     }
      * }} NrShippingCarrier

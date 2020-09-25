@@ -51,6 +51,7 @@ define([
             errors: [],
             image: '',
             title: '',
+            displayColor: '',
             commentsBefore: [],
             commentsAfter: [],
             footnotes: [],
@@ -62,7 +63,7 @@ define([
 
         initObservable: function () {
             this._super();
-            this.observe('errors image title commentsBefore commentsAfter footnotes visible isLoading');
+            this.observe('errors image title displayColor commentsBefore commentsAfter footnotes visible isLoading');
             this.elems.extend({rateLimit: {timeout: 50, method: "notifyWhenChangesStop"}});
 
             return this;
@@ -119,6 +120,7 @@ define([
             if (carrierData.hasOwnProperty('metadata')) {
                 this.image(carrierData.metadata.image_url);
                 this.title(carrierData.metadata.title);
+                this.displayColor(carrierData.metadata.color);
                 this.commentsBefore(carrierData.metadata.comments_before);
                 this.commentsAfter(carrierData.metadata.comments_after);
             }

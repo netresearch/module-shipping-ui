@@ -67,6 +67,7 @@ define([
             template: 'Netresearch_ShippingUi/checkout/shipping-information', // override core template
             displayData: [],
             displayTitle: '',
+            displayColor: '',
         },
 
         /**
@@ -90,6 +91,7 @@ define([
                 if (carrierSelections && carrierCheckoutData) {
                     if (carrierCheckoutData.hasOwnProperty('metadata')) {
                         this.displayTitle(carrierCheckoutData.metadata.title);
+                        this.displayColor(carrierCheckoutData.metadata.color);
                     }
                     this.displayData(buildDisplayData(
                         carrierCheckoutData,
@@ -106,7 +108,7 @@ define([
          * Initializes observable properties of instance
          */
         initObservable: function () {
-            return this._super().observe(['displayData', 'displayTitle']);
+            return this._super().observe(['displayData', 'displayTitle', 'displayColor']);
         },
     };
 
