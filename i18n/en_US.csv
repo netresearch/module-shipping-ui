@@ -19,6 +19,7 @@ Services,Services
 "Shipping Services","Shipping Services"
 Street,Street
 Yes,Yes
+"Your input must not include one of the following: ","Your input must not include one of the following: "
 "Your shipping option selections could not be saved.","Your shipping option selections could not be saved."
 and,and
 edit,edit

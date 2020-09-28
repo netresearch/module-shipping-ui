@@ -1,9 +1,6 @@
-and,und
 City,Stadt
 Country,Land
-edit,bearbeiten
-Failed,"Fehlgeschlagen"
-"Label Status","Label Status"
+Failed,Fehlgeschlagen
 "Label Status","Label Status"
 No,Nein
 "Not Available","Nicht verfügbar"
@@ -12,14 +9,17 @@ Partial,"Teilweise verarbeitet"
 Pending,"Steht aus"
 "Pickup Location",Abholort
 Postcode,Postleitzahl
-Processed,"Verarbeitet"
+Processed,Verarbeitet
 Remove,Entfernen
 Search,Suchen
 Select,Auswählen
 Services,Dienstleistungen
 "Ship To:","Versenden an:"
-"Shipping Services","Versand-Services"
 "Shipping Method:",Versandmethode:
-Street,"Straße"
+"Shipping Services",Versand-Services
+Street,Straße
 Yes,Ja
+"Your input must not include one of the following: ","Ihre Angaben dürfen folgende Zeichen nicht enthalten: "
 "Your shipping option selections could not be saved.","Ihre Versandoptions-Auswahl konnte nicht gespeichert werden."
+and,und
+edit,bearbeiten
