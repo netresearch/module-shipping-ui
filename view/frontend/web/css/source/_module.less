@@ -1,0 +1,77 @@
+/** shipping services box below shipping methods listing in checkout */
+.nrshipping-settings-container {
+    border: 2px solid;
+    padding: 20px;
+    margin: 1em 0;
+
+    .nrshipping-settings {
+        h3.title {
+            margin-top: 0;
+        }
+
+        > img {
+            margin-bottom: 1.5rem;
+        }
+
+        .field-note {
+            padding-right: 20px;
+            margin: 5px 0 0 0;
+            display: inline-block;
+        }
+
+        .asterisk {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/** selected services in ship-to sidebar box on payment page in checkout */
+.nrshipping-option-selections-content {
+    border: 2px solid;
+    padding: 0 10px;
+    font-size: smaller;
+
+    ul {
+        padding-left: 20px;
+    }
+}
+
+/** selected services in customer account */
+.nrshipping-selected-services {
+    &:extend(.block);
+    max-width: 400px;
+
+    .section-title {
+        border-bottom: 1px solid #cccccc;
+        margin-bottom: 1.7rem;
+        padding: 1.4rem 0 .5rem;
+
+        .title {
+            color: #41362f;
+            font-weight: 300;
+            line-height: 1.2;
+            font-size: 2rem;
+        }
+    }
+
+    .section-content {
+
+    }
+
+    .data-table {
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.36;
+        font-size: 1.4rem;
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        td, th {
+            padding: 1rem 1rem;
+            text-align: left;
+            font-weight: 400;
+        }
+    }
+}

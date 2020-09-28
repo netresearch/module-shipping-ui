@@ -1,0 +1,44 @@
+@import '_icons.less';
+
+.failed {
+    .icony(red);
+}
+
+.processed {
+    .icony(#50be03);
+}
+
+.partial {
+    .icony(#FFFFFF);
+    &:before {
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(66,190,38,1) 0%, rgba(123,154,171,0.1825105042016807) 66%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.pending {
+    .icony(#afafaf);
+}
+
+.nrshipping-selected-services {
+    &:extend(.admin__page-section);
+
+    .section-title {
+        .admin__page-section-title();
+    }
+    .section-content {
+        .admin__page-section-content();
+
+        .section-item {
+            &:extend(.admin__page-section-item);
+
+            float: left;
+            #mix-grid .width(6,12);
+
+            .data-table {
+                .admin__table-secondary();
+            }
+        }
+    }
+}
