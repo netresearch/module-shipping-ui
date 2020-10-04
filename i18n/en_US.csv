@@ -1,0 +1,27 @@
+"Batch Process Shipments","Batch Process Shipments"
+City,City
+Country,Country
+"Create Shipments","Create Shipments"
+Failed,Failed
+"Label Status","Label Status"
+No,No
+"Not Available","Not Available"
+"Opening hours","Opening hours"
+Partial,Partial
+Pending,Pending
+"Pickup Location","Pickup Location"
+Postcode,Postcode
+Processed,Processed
+Remove,Remove
+Search,Search
+Select,Select
+Services,Services
+"Ship To:","Ship To:"
+"Shipping Method:","Shipping Method:"
+"Shipping Services","Shipping Services"
+Street,Street
+Yes,Yes
+"Your input must not include one of the following: ","Your input must not include one of the following: "
+"Your shipping option selections could not be saved.","Your shipping option selections could not be saved."
+and,and
+edit,edit
