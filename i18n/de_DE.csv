@@ -1,5 +1,7 @@
+"Batch Process Shipments","Massenverarbeitung"
 City,Stadt
 Country,Land
+"Create Shipments","Versandetiketten erzeugen"
 Failed,Fehlgeschlagen
 "Label Status","Label Status"
 No,Nein
