@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.md for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="shipment_packaging">
+            <block name="nrshipping_packaging_popup" template="Netresearch_ShippingUi::order/packaging/packaging-content.phtml">
+                <arguments>
+                    <argument name="popup_view_model" xsi:type="object">Netresearch\ShippingUi\ViewModel\Order\Packaging\Popup</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
