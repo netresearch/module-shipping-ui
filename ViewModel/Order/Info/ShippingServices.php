@@ -226,9 +226,10 @@ class ShippingServices implements ArgumentInterface
     }
 
     /**
-     * The only way to find all inputs that belong to a Shopfinder is to search for a ShippingOption with an input of
-     * type Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes::INPUT_TYPE_SHOPFINDER and return all of its
-     * inputs.
+     * The only way to find all inputs that belong to a shop finder
+     * is to search for a ShippingOption with an input of type
+     * Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes::INPUT_TYPE_SHOPFINDER
+     * and return all of its inputs.
      *
      * @return InputInterface[]
      */
@@ -244,13 +245,11 @@ class ShippingServices implements ArgumentInterface
 
         foreach ($selections as $selection) {
             $serviceOption = $serviceOptions[$selection->getShippingOptionCode()];
-            if ($serviceOption && array_filter(
-                $serviceOption->getInputs(),
-                static function (InputInterface $input) {
-                    return $input->getInputType() ===
-                        Codes::INPUT_TYPE_SHOPFINDER;
-                }
-            )) {
+            $hasShopFinderInputs = static function (InputInterface $input) {
+                return $input->getInputType() === Codes::INPUT_TYPE_SHOPFINDER;
+            };
+
+            if ($serviceOption && array_filter($serviceOption->getInputs(), $hasShopFinderInputs)) {
                 return $serviceOption->getInputs();
             }
         }
