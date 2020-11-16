@@ -1,0 +1,39 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices $viewModel */
+$viewModel = $block->getData('viewModel');
+$orderId = (int) $this->getData('order_id');
+$services = $orderId ? $viewModel->getSelectedServicesByOrderId($orderId): [];
+?>
+<?php if (!empty($services)): ?>
+    <table class="order-details nrshipping-selected-services">
+        <tr>
+            <td class="address-details">
+                <h3><?= $block->escapeHtml(__('Shipping Services')) ?></h3>
+                <table class="order-information-table">
+                    <tbody>
+                    <?php foreach ($services as $service) : ?>
+                        <tr>
+                            <th><?= $block->escapeHtml($service['label']) ?></th>
+                            <td style="padding: 0 0 0 10px"><?= $block->escapeHtml($service['value']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    <?php if ($viewModel->getPickupLocationAddress()) : ?>
+                        <tr>
+                            <th><?= $block->escapeHtml(__('Pickup Location')) ?></th>
+                            <td>
+                                <?php foreach ($viewModel->getPickupLocationAddress() as $addressLine) : ?>
+                                    <div><?= $block->escapeHtml($addressLine) ?></div>
+                                <?php endforeach; ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+<?php endif; ?>

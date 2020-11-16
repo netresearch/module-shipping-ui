@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+See LICENSE.md for license details.
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <filters name="listing_filters">
+            <filterSelect name="nrshipping_label_status" provider="${ $.parentName }"
+                          component="Magento_Ui/js/form/element/ui-select"
+                          template="ui/grid/filters/elements/ui-select">
+                <settings>
+                    <label translate="true">Label Status</label>
+                    <dataScope>nrshipping_label_status</dataScope>
+                    <options class="\Netresearch\ShippingUi\Component\Listing\Column\LabelStatus\Options"/>
+                </settings>
+            </filterSelect>
+        </filters>
+        <massaction name="listing_massaction">
+            <action name="nrshipping_orderactions">
+                <settings>
+                    <type>nrshipping_batch_process</type>
+                    <label translate="true">Batch Process Shipments</label>
+                    <actions>
+                        <action name="0">
+                            <type>nrshipping_batch_create_shipments</type>
+                            <label translate="true">Create Shipments</label>
+                            <url path="nrshipping/shipment/autocreate"/>
+                        </action>
+                    </actions>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="sales_order_columns">
+        <column name="nrshipping_label_status">
+            <settings>
+                <label translate="true">Label Status</label>
+                <visible>false</visible>
+                <bodyTmpl>Netresearch_ShippingUi/grid/cells/label-status</bodyTmpl>
+                <filter>nrshipping_label_status</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>
