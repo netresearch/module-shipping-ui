@@ -1,3 +1,5 @@
+"(Excl. Tax)","(Exkl. Steuer)"
+"(Incl. Tax)","(Inkl. Steuer)"
 "Add Another Package","Weiteres Paket hinzufügen"
 "Batch Process Shipments",Massenverarbeitung
 "Changes have been made to this section that have not been saved.","In diesem Abschnitt gibt es ungespeicherte Änderungen"
@@ -11,7 +13,7 @@ Failed,Fehlgeschlagen
 "Label Status","Label Status"
 No,Nein
 "Not Available","Nicht verfügbar"
-"Package %1",""Paket %1""
+"Package %1","Paket %1"
 "Package Items","Artikel im Paket"
 "Package Options","Paket-Parameter"
 Partial,"Teilweise verarbeitet"
