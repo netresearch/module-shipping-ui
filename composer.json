@@ -27,13 +27,14 @@
         "magento/module-checkout": "^100.3.0",
         "magento/module-customer": "^102.0.0 || ^103.0.0",
         "magento/module-sales": "^102.0.0 || ^103.0.0",
+        "magento/module-tax": "^100.3.0",
         "magento/module-ui": "^101.1.0",
         "magento/module-shipping": "^100.3.0",
         "netresearch/module-shipping-core": "^1.0.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "1.0.0.x-dev"
+            "dev-GLS-59": "1.0.0.x-dev"
         }
     }
 }
