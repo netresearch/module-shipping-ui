@@ -1,6 +1,6 @@
 <div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor()}">
     <fieldset class="fieldset nrshipping-settings">
-        <img if="image()" data-bind="attr: {src: image}" width="150px" height="auto"/>
+        <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"/>
         <h3 if="title()" text="title" class="title"/>
 
         <!-- ko foreach: { data: commentsBefore, as: 'comment' } -->
