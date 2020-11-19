@@ -305,14 +305,14 @@ define([
          * @return {string}
          */
         getImage: function () {
-            return self.shippingSettings.carriers[0].metadata.image_url;
+            return self.shippingSettings.carriers[0].metadata.logo_url;
         },
 
         /**
          * @return {boolean}
          */
         hasImage: function () {
-            return Boolean(self.shippingSettings.carriers[0].metadata.image_url);
+            return Boolean(self.shippingSettings.carriers[0].metadata.logo_url);
         },
 
         /**
