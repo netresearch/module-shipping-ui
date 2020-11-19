@@ -50,6 +50,7 @@ define([
             template: 'Netresearch_ShippingUi/checkout/shipping-options-area',
             errors: [],
             image: '',
+            imageWidth: '',
             title: '',
             displayColor: '',
             commentsBefore: [],
@@ -63,7 +64,7 @@ define([
 
         initObservable: function () {
             this._super();
-            this.observe('errors image title displayColor commentsBefore commentsAfter footnotes visible isLoading');
+            this.observe('errors image imageWidth title displayColor commentsBefore commentsAfter footnotes visible isLoading');
             this.elems.extend({rateLimit: {timeout: 50, method: "notifyWhenChangesStop"}});
 
             return this;
@@ -118,7 +119,8 @@ define([
             }
 
             if (carrierData.hasOwnProperty('metadata')) {
-                this.image(carrierData.metadata.image_url);
+                this.image(carrierData.metadata.logo_url);
+                this.imageWidth(carrierData.metadata.logo_width);
                 this.title(carrierData.metadata.title);
                 this.displayColor(carrierData.metadata.color);
                 this.commentsBefore(carrierData.metadata.comments_before);
