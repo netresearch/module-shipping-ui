@@ -34,7 +34,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-GLS-59": "1.0.0.x-dev"
+            "dev-develop": "1.0.0.x-dev"
         }
     }
 }

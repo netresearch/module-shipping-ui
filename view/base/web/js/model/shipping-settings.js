@@ -29,7 +29,8 @@ define([
      *     metadata: {
      *         comments_after: NrShippingComment[],
      *         comments_before: NrShippingComment[],
-     *         image_url: string,
+     *         logo_url: string,
+     *         logo_width: string,
      *         title: string,
      *         color: string,
      *         footnotes: NrShippingFootnote[],
