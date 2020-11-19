@@ -1,0 +1,42 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices $viewModel */
+$viewModel = $block->getData('viewModel');
+$services = $viewModel->getSelectedServices();
+?>
+<?php if (count($services) > 0) : ?>
+    <section class="nrshipping-selected-services">
+        <div class="section-title">
+            <span class="title"><?= $block->escapeHtml(__('Shipping Services')) ?></span>
+        </div>
+        <div class="section-content">
+            <div class="section-item">
+                <table class="data-table">
+                    <tbody>
+                    <?php foreach ($services as $idx => $service) : ?>
+                        <tr class="col-<?= /* @noEscape */ (int) $idx ?>">
+                            <td class="label"><?= $block->escapeHtml($service['label']) ?></td>
+                            <td><?= $block->escapeHtml($service['value']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                    <?php if ($viewModel->getPickupLocationAddress()) : ?>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('Pickup Location')) ?></th>
+                        <td>
+                            <?php foreach ($viewModel->getPickupLocationAddress() as $addressLine) : ?>
+                                <div><?= $block->escapeHtml($addressLine) ?></div>
+                            <?php endforeach; ?>
+                        </td>
+                    </tr>
+                    <?php endif; ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>

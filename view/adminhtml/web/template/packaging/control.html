@@ -1,0 +1,65 @@
+<div class="package-action-buttons top-buttons" id="nrshipping-package-buttons">
+
+    <img data-bind="attr: {src: getImage()}" if="hasImage"/>
+    <div class="action-button-container">
+        <button id="new_package" type="button"
+                class="scalable ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                data-ui-id="page-actions-toolbar-new-package-button" role="button"
+                data-bind="
+                    attr: {
+                        disabled: disableAddPackage,
+                        'aria-disabled': disableAddPackage,
+                        title: $('New Package')
+                    },
+                    click: newPackage,
+                    css: {disabled: disableAddPackage}">
+            <span class="ui-button-text">
+                <span data-bind="i18n: 'Add Another Package'"></span>
+            </span>
+        </button>
+        <button id="save" type="button"
+                class="action-default scalable save primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                data-ui-id="page-actions-toolbar-save-button" role="button"
+                data-bind="
+                    attr: {
+                        disabled: disableSave(),
+                        'aria-disabled': disableSave(),
+                        title: $t('Create Shipping Label')
+                    },
+                    click: submitPackages,
+                    css: {disabled: disableSave()}">
+            <span class="ui-button-text">
+                <span data-bind="i18n: 'Create Shipping Label'"></span>
+            </span>
+        </button>
+    </div>
+</div>
+<div class="message message-warning" style="display: none"/>
+<!-- ko if: errors()-->
+<!-- ko foreach: { data: errors, as: 'error' } -->
+<div class="message error" text="error"/>
+<!-- /ko -->
+<!-- /ko -->
+<div id="grid_tab" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="tabs-horiz ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist"
+        data-bind="visible: packages().length > 1, foreach: { data: packages, as: 'package' }">
+        <li class="ui-corner-top ui-state-default"
+            data-bind="attr: {tabindex: id, class: $parent.getStateClass($data) }
+                "
+            role="tab">
+            <div class="tab-anchor-group">
+                <a data-bind="attr: {title: $parent.getPackageTitle($data)}, text: $parent.getPackageTitle($data) , click: $parent.selectPackage"
+                   class="ui-tabs-anchor select-package" data-tab-type=""
+                   role="presentation" tabindex="-1">
+                </a>
+                <a data-bind="attr: {title: $parent.getPackageTitle($data) }, click: $parent.deletePackage"
+                   class="ui-tabs-anchor delete-package" data-tab-type=""
+                   role="presentation" tabindex="-1">
+                </a>
+            </div>
+        </li>
+    </ul>
+    <each args="data: elems, as: 'element'">
+        <render if="hasTemplate()"/>
+    </each>
+</div>

@@ -1,0 +1,40 @@
+{
+    "name": "netresearch/module-shipping-ui",
+    "version": "1.0.0",
+    "type": "magento2-module",
+    "description": "Module providing the UI integration for the Netresearch shipping components",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "plugins@netresearch.de",
+            "name": "Netresearch DTT GmbH",
+            "role": "Manufacturer",
+            "homepage": "https://www.netresearch.de/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Netresearch\\ShippingUi\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "require": {
+        "php": "^7.1.3",
+        "magento/framework": "^102.0.0 || ^103.0.0",
+        "magento/module-backend": "^101.0.0 || ^102.0.0",
+        "magento/module-checkout": "^100.3.0",
+        "magento/module-customer": "^102.0.0 || ^103.0.0",
+        "magento/module-sales": "^102.0.0 || ^103.0.0",
+        "magento/module-tax": "^100.3.0",
+        "magento/module-ui": "^101.1.0",
+        "magento/module-shipping": "^100.3.0",
+        "netresearch/module-shipping-core": "^1.0.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.0.x-dev"
+        }
+    }
+}

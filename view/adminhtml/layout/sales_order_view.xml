@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.md for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_additional_info">
+            <block name="nrshipping_services" class="Magento\Backend\Block\Template" template="Netresearch_ShippingUi::order/view/info/shipping-services.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices</argument>
+                </arguments>
+            </block>
+            <referenceContainer name="order_totals">
+                <block class="Netresearch\ShippingUi\Block\AdditionalFee\Total" name="nrshipping_order_additional_fee" before="tax"/>
+            </referenceContainer>
+        </referenceBlock>
+    </body>
+</page>
