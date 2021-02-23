@@ -130,7 +130,7 @@ define([
         getByCarrier: function (carrierName) {
             var carrierData;
 
-            if ('carriers' in settings() === false) {
+            if (!('carriers' in settings())) {
                 return false;
             }
 
