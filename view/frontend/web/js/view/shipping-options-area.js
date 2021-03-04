@@ -4,6 +4,7 @@ define([
     'Netresearch_ShippingUi/js/model/checkout/storage',
     'Magento_Checkout/js/model/quote',
     'Magento_Checkout/js/model/payment/additional-validators',
+    'Netresearch_ShippingUi/js/model/current-carrier',
     'Netresearch_ShippingUi/js/model/checkout/checkout-data-refresh',
     'Netresearch_ShippingUi/js/action/shipping-option/generate-components',
     'Netresearch_ShippingUi/js/action/checkout/webapi/get-checkout-data',
@@ -21,6 +22,7 @@ define([
     storage,
     quote,
     additionalValidators,
+    currentCarrier,
     dataRefresh,
     generateShippingOptions,
     getCheckoutData,
@@ -171,6 +173,20 @@ define([
                     carrierData.metadata.footnotes
                 ));
             }
+        },
+
+        /**
+         * Obtain currently selected shipping method.
+         *
+         * @returns {string}
+         */
+        getCarrierCode: function () {
+            var carrierCode = currentCarrier.get();
+            if (!carrierCode) {
+                return '';
+            }
+
+            return carrierCode;
         }
     });
 });
