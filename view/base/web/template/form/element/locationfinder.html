@@ -1,6 +1,6 @@
-<div class="shopfinder-option">
+<div class="locationfinder-option">
     <!-- ko ifnot: selectedLocation-->
-    <button type="button" id="showShopfinder" data-bind="click: openModal">
+    <button type="button" id="showLocationfinder" data-bind="click: openModal">
         <span text="buttonLabel"></span>
     </button>
     <!-- /ko -->
@@ -25,8 +25,8 @@
     </div>
     <!-- /ko -->
 </div>
-<div id="modal-shopfinder" data-bind="afterRender: initModal">
-    <div id="modal-shopfinder-search">
+<div id="modal-locationfinder" data-bind="afterRender: initModal">
+    <div id="modal-locationfinder-search">
         <form data-bind="submit:updateLocations">
             <div class="search-inputs">
                 <div>
@@ -68,5 +68,5 @@
             </button>
         </form>
     </div>
-    <div id="modal-shopfinder-map"></div>
+    <div id="modal-locationfinder-map"></div>
 </div>

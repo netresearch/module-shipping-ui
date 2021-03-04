@@ -44,7 +44,7 @@ define([
             /**
              * Items without quantity are not considered
              */
-            if (_.contains([0, "0", 0.0], item.details.qty)) {
+            if (_.contains([0, "0", 0.0], item.itemDetails.qty)) {
                 return;
             }
 
@@ -64,7 +64,7 @@ define([
 
             /** Multiply with item qty if we have an "add" rule. */
             if (combinationRule.action === 'add') {
-                value = Number(value) * Number(item.details.qty);
+                value = Number(value) * Number(item.itemDetails.qty);
             }
 
             sourceValues.push(value);
@@ -159,7 +159,7 @@ define([
             return true;
         }
 
-        if (currentOptionCode === "details" && currentInputCode === "qty") {
+        if (currentOptionCode === "itemDetails" && currentInputCode === "qty") {
             // A changing item amount means that all rules must be applied again.
             return true;
         }
