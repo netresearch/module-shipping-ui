@@ -16,7 +16,7 @@ define([
             var qtyPacked = selections.reduce(function (carry, selection) {
                 var itemSelection = selection['items'][item.id];
 
-                return carry + Number(itemSelection ? itemSelection['details']['qty'] : 0);
+                return carry + Number(itemSelection ? itemSelection['itemDetails']['qty'] : 0);
             }, 0);
 
             availableItems.push(_.extend({}, item, {qty: item.qty - qtyPacked, qtyToShip: Number(item.qty)}));

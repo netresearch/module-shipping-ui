@@ -21,6 +21,9 @@ use Netresearch\ShippingCore\Model\ShippingSettings\OrderDataProvider;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Selection\OrderSelectionRepository;
 
+/**
+ * @todo(nr): this needs cleanup and some proper documentation
+ */
 class ShippingServices implements ArgumentInterface
 {
     /**
@@ -153,22 +156,22 @@ class ShippingServices implements ArgumentInterface
 
         $this->pickupLocationAddress = [];
 
-        $inputs = $this->findShopfinderInputs();
+        $inputs = $this->getLocationFinderInputs();
 
-        if (isset($inputs[Codes::SHOPFINDER_INPUT_COMPANY])) {
-            $this->pickupLocationAddress[] = $inputs[Codes::SHOPFINDER_INPUT_COMPANY]->getDefaultValue();
+        if (isset($inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_COMPANY])) {
+            $this->pickupLocationAddress[] = $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_COMPANY]->getDefaultValue();
         }
-        if (isset($inputs[Codes::SHOPFINDER_INPUT_STREET])) {
-            $this->pickupLocationAddress[] = $inputs[Codes::SHOPFINDER_INPUT_STREET]->getDefaultValue();
+        if (isset($inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_STREET])) {
+            $this->pickupLocationAddress[] = $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_STREET]->getDefaultValue();
         }
-        if (isset($inputs[Codes::SHOPFINDER_INPUT_POSTAL_CODE], $inputs[Codes::SHOPFINDER_INPUT_CITY])) {
+        if (isset($inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_POSTAL_CODE], $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_CITY])) {
             $this->pickupLocationAddress[] = implode(' ', [
-                $inputs[Codes::SHOPFINDER_INPUT_POSTAL_CODE]->getDefaultValue(),
-                $inputs[Codes::SHOPFINDER_INPUT_CITY]->getDefaultValue()
+                $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_POSTAL_CODE]->getDefaultValue(),
+                $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_CITY]->getDefaultValue()
             ]);
         }
-        if (isset($inputs[Codes::SHOPFINDER_INPUT_COUNTRY_CODE])) {
-            $this->pickupLocationAddress[] = $inputs[Codes::SHOPFINDER_INPUT_COUNTRY_CODE]->getDefaultValue();
+        if (isset($inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_COUNTRY_CODE])) {
+            $this->pickupLocationAddress[] = $inputs[Codes::SERVICE_INPUT_DELIVERY_LOCATION_COUNTRY_CODE]->getDefaultValue();
         }
 
         return $this->pickupLocationAddress;
@@ -228,12 +231,12 @@ class ShippingServices implements ArgumentInterface
     /**
      * The only way to find all inputs that belong to a shop finder
      * is to search for a ShippingOption with an input of type
-     * Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes::INPUT_TYPE_SHOPFINDER
+     * Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes::INPUT_TYPE_LOCATION_FINDER
      * and return all of its inputs.
      *
      * @return InputInterface[]
      */
-    private function findShopfinderInputs(): array
+    private function getLocationFinderInputs(): array
     {
         $shippingAddress = $this->getOrder()->getShippingAddress();
         if (!$shippingAddress || !$shippingAddress->getId()) {
@@ -245,11 +248,11 @@ class ShippingServices implements ArgumentInterface
 
         foreach ($selections as $selection) {
             $serviceOption = $serviceOptions[$selection->getShippingOptionCode()];
-            $hasShopFinderInputs = static function (InputInterface $input) {
-                return $input->getInputType() === Codes::INPUT_TYPE_SHOPFINDER;
+            $hasLocationFinderInputs = static function (InputInterface $input) {
+                return $input->getInputType() === Codes::INPUT_TYPE_LOCATION_FINDER;
             };
 
-            if ($serviceOption && array_filter($serviceOption->getInputs(), $hasShopFinderInputs)) {
+            if ($serviceOption && array_filter($serviceOption->getInputs(), $hasLocationFinderInputs)) {
                 return $serviceOption->getInputs();
             }
         }
