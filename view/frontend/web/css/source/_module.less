@@ -25,6 +25,88 @@
     }
 }
 
+/** location finder */
+.locationfinder-option {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    & > * {
+        margin-right: 1em;
+    }
+
+    .action-remove {
+        .lib-icon-font(@icon-trash);
+        word-spacing: 10px;
+
+        &:before {
+            margin: -3px 5px 0 0px;
+        }
+    }
+}
+
+#modal-locationfinder-search {
+    margin: 0 0 15px 0;
+
+    .search-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        div {
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
+
+        label {
+            font-weight: 600;
+        }
+    }
+
+    .btn-primary {
+        margin: 0 0 0 5px;
+        .lib-icon-font(@icon-search);
+    }
+}
+
+#modal-locationfinder-map {
+    height: 600px;
+    max-height: 80vh;
+
+    .location-filter-label {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        background: white
+    }
+}
+
+.leaflet-popup-content .map-popup-container {
+    p {
+        margin: 4px 0;
+    }
+
+    h4, h5 {
+        margin: 5px 0;
+    }
+
+    .opening-hours {
+        td {
+            padding: 0;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    #modal-locationfinder-search {
+        .search-inputs {
+            div {
+                width: 49%;
+            }
+        }
+    }
+}
+
 /** selected services in ship-to sidebar box on payment page in checkout */
 .nrshipping-option-selections-content {
     border: 2px solid;

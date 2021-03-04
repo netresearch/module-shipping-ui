@@ -17,5 +17,8 @@ var config = {
                 'Netresearch_ShippingUi/js/mixin/checkout/ship-to-address': true
             }
         }
+    },
+    paths: {
+        leaflet: 'Netresearch_ShippingUi/lib/leaflet/leaflet'
     }
 };

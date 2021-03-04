@@ -1,18 +1,23 @@
 "(Excl. Tax)","(Excl. Tax)"
 "(Incl. Tax)","(Incl. Tax)"
 "Add Another Package","Add Another Package"
+"An error occurred while loading map. Please try again later.","An error occurred while loading map. Please try again later."
+Back,Back
 "Batch Process Shipments","Batch Process Shipments"
 "Changes have been made to this section that have not been saved.","Changes have been made to this section that have not been saved."
 City,City
 Country,Country
 "Create Shipments","Create Shipments"
 "Create Shipping Label","Create Shipping Label"
+Edit,Edit
 Failed,Failed
 "For editing package items click to enlarge","For editing package items click to enlarge"
 "Item quantity must be between {0} and {1}.","Item quantity must be between {0} and {1}."
 "Label Status","Label Status"
+"Map data","Map data"
 No,No
 "Not Available","Not Available"
+"Opening Hours","Opening Hours"
 "Package %1","Package %1"
 "Package Items","Package Items"
 "Package Options","Package Options"
@@ -21,9 +26,13 @@ Pending,Pending
 "Pickup Location","Pickup Location"
 Postcode,Postcode
 Processed,Processed
+"Recipient Street","Recipient Street"
 Remove,Remove
+Save,Save
 Search,Search
+Select,Select
 "Service Options","Service Options"
+Services,Services
 "Ship To:","Ship To:"
 "Shipment Setup","Shipment Setup"
 "Shipment could not be created.","Shipment could not be created."
@@ -31,8 +40,12 @@ Search,Search
 "Shipping Services","Shipping Services"
 "Some items are not assigned to a package. Please assign every item to a package.","Some items are not assigned to a package. Please assign every item to a package."
 Street,Street
+"Street Name","Street Name"
+"Street Number","Street Number"
+Supplement,Supplement
 "This tab contains invalid data. Please resolve this before saving.","This tab contains invalid data. Please resolve this before saving."
 Yes,Yes
+"You must not refer to a parcel shop, postal office, or similar.","You must not refer to a parcel shop, postal office, or similar."
 "Your input must not include one of the following: ","Your input must not include one of the following: "
 "Your shipping option selections could not be saved.","Your shipping option selections could not be saved."
 and,and

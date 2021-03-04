@@ -9,6 +9,14 @@ define([
      * This mixin adds custom input validation routines to the core validation flow.
      */
     return function (validator) {
+        /**
+         * @type {string[]}
+         */
+        var parcelPickupFacilities = [
+            'paketbox', 'packstation', 'paketshop', 'postfach', 'postfiliale', 'filiale', 'paketkasten',
+            'dhlpaketstation', 'parcelshop', 'pakcstation', 'paackstation', 'pakstation', 'backstation',
+            'bakstation', 'wunschfiliale', 'deutsche post'
+        ];
 
         /**
          * @type {string[]}
@@ -38,12 +46,23 @@ define([
         );
 
         /**
+         * Validator to disallow parcel shops or other postal facilities as input value.
+         */
+        validator.addRule(
+            'nrshipping-validate-no-pickup-address',
+            function (value) {
+                return !isOnDenyList(value, parcelPickupFacilities);
+            },
+            $t('You must not refer to a parcel shop, postal office, or similar.')
+        );
+
+        /**
          * Validator to only allow quantities in a range
          * that also prints out the allowed qty range in the error message.
          * Based on 'validate-number-range' from Magento core.
          */
         validator.addRule(
-            'nrshipping_validate_qty_range',
+            'nrshipping-validate-qty-range',
             /**
              * @param {string} value
              * @param {int[]} params

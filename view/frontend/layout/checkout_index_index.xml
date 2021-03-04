@@ -1,4 +1,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Netresearch_ShippingUi::lib/leaflet/leaflet.css"/>
+    </head>
     <body>
         <referenceBlock name="checkout.root">
             <arguments>
@@ -24,6 +27,17 @@
                                                                     </item>
                                                                 </item>
                                                             </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="shipping-information" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="ship-to" xsi:type="array">
+                                                    <item name="rendererTemplates" xsi:type="array">
+                                                        <item name="delivery-location" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Netresearch_ShippingUi/js/view/checkout/shipping-information/address-renderer/shipping</item>
                                                         </item>
                                                     </item>
                                                 </item>

@@ -5,6 +5,9 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="view_block_abstract_to_html_after">
+        <observer name="nrshipping_show_recipient_street" instance="Netresearch\ShippingUi\Observer\AddRecipientStreetInfoBlock"/>
+    </event>
     <event name="adminhtml_block_html_before">
         <observer name="nrshipping_change_packaging_template" instance="Netresearch\ShippingUi\Observer\ChangePackagingTemplateObserver"/>
     </event>
