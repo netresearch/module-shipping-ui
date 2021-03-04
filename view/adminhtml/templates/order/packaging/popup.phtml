@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * See LICENSE.md for license details.
+ */
+
+?>
+
+<?php
+/** @var $block Magento\Shipping\Block\Adminhtml\Order\Packaging */
+$carrierCode = strtok((string) $block->getShipment()->getOrder()->getShippingMethod(), '_');
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Netresearch_ShippingUi/js/packaging": {
+                "name": "packaging-popup-modal",
+                "target": "#packaging-window",
+                "options": {
+                    "title": "<?= $block->escapeHtml(__('Shipment Setup')) ?>",
+                    "type": "slide",
+                    "buttons": []
+                },
+                "carrierCode": "<?= $block->escapeHtml($carrierCode) ?>"
+            }
+        }
+    }
+</script>
+<div id="packaging-window">
+    <?= /* @noEscape */ $block->getChildHtml() ?>
+</div>
