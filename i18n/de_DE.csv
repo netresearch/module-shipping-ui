@@ -1,38 +1,51 @@
 "(Excl. Tax)","(Exkl. Steuer)"
 "(Incl. Tax)","(Inkl. Steuer)"
 "Add Another Package","Weiteres Paket hinzufügen"
+"An error occurred while loading map. Please try again later.","Es ist ein Fehler beim Laden der Karte aufgetreten. Bitte versuchen Sie es später noch einmal."
+Back,Zurück
 "Batch Process Shipments",Massenverarbeitung
 "Changes have been made to this section that have not been saved.","In diesem Abschnitt gibt es ungespeicherte Änderungen"
 City,Stadt
 Country,Land
 "Create Shipments","Versandetiketten erzeugen"
 "Create Shipping Label","Versandetikett erzeugen"
+Edit,Bearbeiten
 Failed,Fehlgeschlagen
 "For editing package items click to enlarge","Anklicken um Artikel im Paket zu bearbeiten"
 "Item quantity must be between {0} and {1}.","Artikelmenge muss zwischen {0} und {1} liegen."
 "Label Status","Label Status"
+"Map data",Kartendaten
 No,Nein
 "Not Available","Nicht verfügbar"
+"Opening Hours",Öffnungszeiten
 "Package %1","Paket %1"
 "Package Items","Artikel im Paket"
-"Package Options","Paket-Parameter"
+"Package Options",Paket-Parameter
 Partial,"Teilweise verarbeitet"
 Pending,"Steht aus"
 "Pickup Location",Abholort
 Postcode,Postleitzahl
 Processed,Verarbeitet
+"Recipient Street",Empfängeradresse
 Remove,Entfernen
+Save,Speichern
 Search,Suchen
-"Service Options","Serviceoptionen"
+Select,Auswählen
+"Service Options",Serviceoptionen
+Services,Dienstleistungen
 "Ship To:","Versenden an:"
-"Shipment Setup","Versandetikett-Konfiguration"
+"Shipment Setup",Versandetikett-Konfiguration
 "Shipment could not be created.","Sendung konnte nicht erstellt werden."
 "Shipping Method:",Versandmethode:
 "Shipping Services",Versand-Services
 "Some items are not assigned to a package. Please assign every item to a package.","Einige Artikel sind keinem Paket zugeordnet. Bitte teilen Sie alle Artikel einem Paket zu."
 Street,Straße
+"Street Name",Straße
+"Street Number",Hausnummer
+Supplement,Ergänzung
 "This tab contains invalid data. Please resolve this before saving.","Dieser Reiter enthält ungültige Daten. Bitte vor dem Speichern korrigieren."
 Yes,Ja
+"You must not refer to a parcel shop, postal office, or similar.","Paket-Shops, Postfilialen oder ähnliches dürfen nicht "
 "Your input must not include one of the following: ","Ihre Angaben dürfen folgende Zeichen nicht enthalten: "
 "Your shipping option selections could not be saved.","Ihre Versandoptions-Auswahl konnte nicht gespeichert werden."
 and,und

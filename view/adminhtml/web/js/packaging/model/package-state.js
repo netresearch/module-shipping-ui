@@ -64,7 +64,7 @@ define([
                 var qtyValue = getInputValueFromDom('qty', itemId);
 
                 if (qtyValue !== "") {
-                    packageSelection['items'][itemId]['details']['qty'] = Number(qtyValue);
+                    packageSelection['items'][itemId]['itemDetails']['qty'] = Number(qtyValue);
                 }
             });
 
@@ -124,9 +124,9 @@ define([
              **/
             newItemSelection = existingPackageWithItem
                 ? deepClone(existingPackageWithItem.items[item.id])
-                : {details: {}};
-            newItemSelection.details.qty = item.qty;
-            newItemSelection.details.qtyToShip = item.qtyToShip;
+                : {itemDetails: {}};
+            newItemSelection.itemDetails.qty = item.qty;
+            newItemSelection.itemDetails.qtyToShip = item.qtyToShip;
             packageSelection['items'][item.id] = newItemSelection;
         });
 

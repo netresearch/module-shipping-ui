@@ -58,9 +58,9 @@ define([], function () {
             template: 'Netresearch_ShippingUi/form/element/static',
             component: 'Netresearch_ShippingUi/js/view/shipping-option-input'
         },
-        shopfinder: {
-            template: 'Netresearch_ShippingUi/form/element/shopfinder',
-            component: 'Netresearch_ShippingUi/js/view/input/shopfinder'
+        locationfinder: {
+            template: 'Netresearch_ShippingUi/form/element/locationfinder',
+            component: 'Netresearch_ShippingUi/js/view/input/locationfinder'
         }
     };
 

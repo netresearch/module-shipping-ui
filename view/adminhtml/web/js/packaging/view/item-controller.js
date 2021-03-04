@@ -21,7 +21,7 @@ define([
                     return availableItem.id === Number(itemId);
                 });
 
-                item.qty += Number(itemSelection.details.qty);
+                item.qty += Number(itemSelection.itemDetails.qty);
             });
         }
         return availableItems.filter(function (item) {
@@ -40,7 +40,7 @@ define([
         var itemInput = _.findWhere(
             _.findWhere(
                 itemOption.shipping_options,
-                {code: 'details'}
+                {code: 'itemDetails'}
             ).inputs,
             {code: 'productName'}
         );
