@@ -197,7 +197,7 @@ define([
             // remove all items with 0 quantity
             data = data.map(function (selection) {
                 selection.items = _.omit(selection.items, function (item) {
-                    return Number(item.details.qty) === 0;
+                    return Number(item.itemDetails.qty) === 0;
                 });
                 return selection;
             });

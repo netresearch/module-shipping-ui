@@ -15,7 +15,7 @@ define([
      */
     var getRemainingShippableQty = function (selections, itemId) {
         var currentPackageId = selections.packageId,
-            totalQty = selections.items[itemId].details.qtyToShip,
+            totalQty = selections.items[itemId].itemDetails.qtyToShip,
             allPackages = selectionsModel.getAll(),
             otherPackages = _.filter(allPackages, function (singlePackage) {
                 return singlePackage.packageId !== currentPackageId;
@@ -27,7 +27,7 @@ define([
         }
         qtyInOtherPackages = _.reduce(otherPackages, function (memo, singlePackage) {
             if (singlePackage.items[itemId]) {
-                return memo + Number(singlePackage.items[itemId].details.qty);
+                return memo + Number(singlePackage.items[itemId].itemDetails.qty);
             }
             return memo;
         }, 0);
@@ -51,7 +51,7 @@ define([
         if (!onlyCurrentItemInPackage) {
             otherItemsQty = _.reduce(selections.items, function (memo, item, key) {
                 if (Number(key) !== itemId) {
-                    return memo + Number(item.details.qty);
+                    return memo + Number(item.itemDetails.qty);
                 }
                 return memo;
             }, 0);
@@ -70,7 +70,7 @@ define([
         var maxQty = getRemainingShippableQty(selections, itemId),
             minQty = isLastItemInPackage(selections, itemId) ? 1 : 0;
 
-        component.validation['nrshipping_validate_qty_range'] = [minQty, maxQty];
+        component.validation['nrshipping-validate-qty-range'] = [minQty, maxQty];
         component.validate();
     };
 
