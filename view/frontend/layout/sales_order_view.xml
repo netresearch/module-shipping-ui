@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="order_totals">
+            <block class="Netresearch\ShippingUi\Block\AdditionalFee\Total" name="nrshipping_order_additional_fee">
+                <arguments>
+                    <argument name="label_properties" xsi:type="string">colspan="4" class="mark"</argument>
+                    <argument name="value_properties" xsi:type="string">class="amount"</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
         <referenceContainer name="content">
             <block name="nrshipping_services" class="Magento\Framework\View\Element\Template" template="Netresearch_ShippingUi::order/view/info/shipping-services.phtml" after="sales.order.info">
                 <arguments>
