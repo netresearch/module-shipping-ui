@@ -24,11 +24,7 @@ define([
             carrier = currentCarrier.get();
 
         if (quote.isVirtual()) {
-            return $.Deferred().resolve();
-        }
-
-        if (!carrier) {
-            return $.Deferred.reject('No shipping option selected');
+            selectionsModel.reset();
         }
 
         selections = selectionsModel.getByCarrier(carrier);
