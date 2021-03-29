@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<pages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/PageObject.xsd">
+    <page name="AdminShipmentDetailsPage" url="order_shipment/view/shipment_id/" area="admin" module="Shipping">
+        <section name="AdminOrderRecipientStreetInformationSection"/>
+        <section name="AdminShipmentPackagingPopupSection"/>
+    </page>
+</pages>

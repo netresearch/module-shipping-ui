@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ /**
+  * See LICENSE.md for license details.
+  */
+-->
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AdminOrderRecipientStreetInformationSection">
+        <element name="recipientStreetContainer" type="text" selector=".order-addresses.nrshipping-recipient-address"/>
+        <element name="recipientStreetEditLink" type="button" selector=".nrshipping-recipient-address .order-shipping-address .actions a"/>
+        <element name="recipientStreetName" type="text" selector=".nrshipping-recipient-address .nrshipping-recipient-street dd.values:nth-of-type(1)"/>
+        <element name="recipientStreetNumber" type="text" selector=".nrshipping-recipient-address .nrshipping-recipient-street dd.values:nth-of-type(2)"/>
+        <element name="recipientStreetSupplement" type="text" selector=".nrshipping-recipient-address .nrshipping-recipient-street dd.values:nth-of-type(3)"/>
+    </section>
+</sections>
