@@ -32,5 +32,10 @@
     "magento/module-ui": "^101.1.0",
     "magento/module-shipping": "^100.3.0",
     "netresearch/module-shipping-core": "^2.0.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "2.0.1.x-dev"
+    }
   }
 }
