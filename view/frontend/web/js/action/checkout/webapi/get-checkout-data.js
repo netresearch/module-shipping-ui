@@ -39,8 +39,14 @@ define([
             JSON.stringify(payload)
         ).success(
             function (response) {
-                storage.set(countryId + postalCode, response);
-                checkoutData.set(response);
+                if (response['carriers'] !== undefined) {
+                    // we probably have a NrShippingSettings object, store it in local storage
+                    storage.set(countryId + postalCode, response);
+                    checkoutData.set(response);
+                } else {
+                    // something went wrong, prevent weird behaviour
+                    checkoutData.set({})
+                }
                 shippingService.isLoading(false);
             }
         ).fail(
