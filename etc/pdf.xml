@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/pdf_file.xsd">
+    <totals>
+        <total name="nrshipping_additional_fee">
+            <title translate="false">'Additional Fee'</title>
+            <source_field>nrshipping_additional_fee</source_field>
+            <model>Netresearch\ShippingUi\Model\Sales\Pdf\AdditionalFee</model>
+            <font_size>7</font_size>
+            <display_zero>false</display_zero>
+            <sort_order>400</sort_order>
+        </total>
+    </totals>
+</config>
