@@ -1,6 +1,6 @@
 {
   "name": "netresearch/module-shipping-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "magento2-module",
   "description": "Module providing the UI integration for the Netresearch shipping components",
   "license": "OSL-3.0",
