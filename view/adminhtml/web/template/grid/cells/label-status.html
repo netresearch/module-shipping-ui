@@ -1,0 +1,14 @@
+<!--
+See LICENSE.md for license details.
+-->
+<div class="data-grid-cell-content label-status">
+    <span ifnot="!!$row()[$col.index]" data-bind="i18n: 'Not Available'"></span>
+
+    <span if="$row()[$col.index] === 'pending'" title="Pending" class="pending"></span>
+
+    <span if="$row()[$col.index] === 'processed'" title="Processed" class="processed"></span>
+
+    <span if="$row()[$col.index] === 'failed'" title="Failed" class="failed"></span>
+
+    <span if="$row()[$col.index] === 'partial'" title="Pending" class="partial"></span>
+</div>

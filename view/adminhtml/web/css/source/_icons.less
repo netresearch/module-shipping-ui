@@ -1,0 +1,17 @@
+@base-size: .938rem;
+@sm-size: .625rem;
+@xs-size: .313rem;
+
+.icony(@color) {
+    display: block;
+    align-items: center;
+    text-align: center;
+
+    &:before {
+        &:extend(.abs-icon all);
+        font-size: 200%;
+        color: @color;
+        content: @icon-product__content;
+        margin: 0 @sm-size 0 0;
+    }
+}

@@ -1,0 +1,159 @@
+/** shipping services box below shipping methods listing in checkout */
+.nrshipping-settings-container {
+    border: 2px solid;
+    padding: 20px;
+    margin: 1em 0;
+
+    .nrshipping-settings {
+        h3.title {
+            margin-top: 0;
+        }
+
+        > img {
+            margin-bottom: 1.5rem;
+        }
+
+        .field-note {
+            padding-right: 20px;
+            margin: 5px 0 0 0;
+            display: inline-block;
+        }
+
+        .asterisk {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/** location finder */
+.locationfinder-option {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    & > * {
+        margin-right: 1em;
+    }
+
+    .action-remove {
+        .lib-icon-font(@icon-trash);
+        word-spacing: 10px;
+
+        &:before {
+            margin: -3px 5px 0 0px;
+        }
+    }
+}
+
+#modal-locationfinder-search {
+    margin: 0 0 15px 0;
+
+    .search-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        div {
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
+
+        label {
+            font-weight: 600;
+        }
+    }
+
+    .btn-primary {
+        margin: 0 0 0 5px;
+        .lib-icon-font(@icon-search);
+    }
+}
+
+#modal-locationfinder-map {
+    height: 600px;
+    max-height: 80vh;
+
+    .location-filter-label {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        background: white
+    }
+}
+
+.leaflet-popup-content .map-popup-container {
+    p {
+        margin: 4px 0;
+    }
+
+    h4, h5 {
+        margin: 5px 0;
+    }
+
+    .opening-hours {
+        td {
+            padding: 0;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    #modal-locationfinder-search {
+        .search-inputs {
+            div {
+                width: 49%;
+            }
+        }
+    }
+}
+
+/** selected services in ship-to sidebar box on payment page in checkout */
+.nrshipping-option-selections-content {
+    border: 2px solid;
+    padding: 0 10px;
+    font-size: smaller;
+
+    ul {
+        padding-left: 20px;
+    }
+}
+
+/** selected services in customer account */
+.nrshipping-selected-services {
+    &:extend(.block);
+    max-width: 400px;
+
+    .section-title {
+        border-bottom: 1px solid #cccccc;
+        margin-bottom: 1.7rem;
+        padding: 1.4rem 0 .5rem;
+
+        .title {
+            color: #41362f;
+            font-weight: 300;
+            line-height: 1.2;
+            font-size: 2rem;
+        }
+    }
+
+    .section-content {
+
+    }
+
+    .data-table {
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.36;
+        font-size: 1.4rem;
+
+        tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        td, th {
+            padding: 1rem 1rem;
+            text-align: left;
+            font-weight: 400;
+        }
+    }
+}
