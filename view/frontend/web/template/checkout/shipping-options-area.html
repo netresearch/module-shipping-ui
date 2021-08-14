@@ -1,4 +1,4 @@
-<div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor()}">
+<div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor() }">
     <fieldset class="fieldset nrshipping-settings" data-bind="css: getCarrierCode()">
         <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"/>
         <h3 if="title()" text="title" class="title"/>
@@ -20,18 +20,19 @@
                 <span data-bind="html: footnote.content"/>
             </p>
         <!-- /ko -->
-
         <!-- /ko -->
+
         <!-- ko foreach: { data: commentsAfter, as: 'comment' } -->
             <p class="field-note">
                 <span data-bind="html: comment.content"/>
             </p>
         <!-- /ko -->
-        <!-- ko if: errors()-->
-            <!-- ko foreach: { data: errors, as: 'error' } -->
+
+        <!-- ko if: errors() -->
+        <!-- ko foreach: { data: errors, as: 'error' } -->
             <label class="message error" text="error"/>
-            <!-- /ko -->
+        <!-- /ko -->
         <!-- /ko -->
     </fieldset>
 </div>
-<!-- /ko -->
+
