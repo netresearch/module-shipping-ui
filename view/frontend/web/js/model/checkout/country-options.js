@@ -12,8 +12,14 @@ define([
      * @returns {{countryCode: string, countryName: string}[]}
      */
     var createOptions = function (countryCodes) {
-        var countryData = customerData.get('directory-data')(),
-            allCountryCodes = Object.keys(countryData),
+        var countryData = customerData.get('directory-data')();
+
+        if (_.isEmpty(countryData)){
+            customerData.reload(['directory-data'], false);
+            countryData = customerData.get('directory-data')();
+        }
+
+        var allCountryCodes = Object.keys(countryData),
             options = [];
 
         countryCodes = _.intersection(countryCodes, allCountryCodes);
