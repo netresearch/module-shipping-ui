@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.actions.toolbar">
+            <block class="Netresearch\ShippingUi\Block\Adminhtml\Rma\Buttons\SubmitButton" name="nrshipping_rma_savebtn"/>
+            <block class="Netresearch\ShippingUi\Block\Adminhtml\Rma\Buttons\BackButton" name="nrshipping_rma_backbtn"/>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" template="Netresearch_ShippingUi::order/returns/new.phtml">
+                <arguments>
+                    <argument xsi:type="object" name="viewModel">Netresearch\ShippingUi\ViewModel\Rma\AdminForm</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
