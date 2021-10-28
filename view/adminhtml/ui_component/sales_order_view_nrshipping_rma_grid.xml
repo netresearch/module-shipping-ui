@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+See LICENSE.md for license details.
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">sales_order_view_nrshipping_rma_grid.sales_order_view_nrshipping_rma_grid_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>sales_order_nrshipping_rma_columns</spinner>
+        <deps>
+            <dep>sales_order_view_nrshipping_rma_grid.sales_order_view_nrshipping_rma_grid_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="sales_order_view_nrshipping_rma_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <filterUrlParams>
+                <param name="order_id">*</param>
+            </filterUrlParams>
+        </settings>
+        <aclResource>Magento_Sales::sales_order</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="sales_order_view_nrshipping_rma_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <columns name="sales_order_nrshipping_rma_columns">
+        <column name="carrier_code">
+            <settings>
+                <label translate="true">Carrier Code</label>
+                <visible>false</visible>
+            </settings>
+        </column>
+        <column name="carrier" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\Carrier">
+            <settings>
+                <label translate="true">Carrier</label>
+                <visible>true</visible>
+                <dataScope>carrier_code</dataScope>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <label translate="true">Title</label>
+                <visible>true</visible>
+            </settings>
+        </column>
+        <column name="track_number" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\Number">
+            <settings>
+                <label translate="true">Tracking Number</label>
+                <visible>true</visible>
+                <sortable>false</sortable>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+            </settings>
+        </column>
+        <column name="documents" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\Documents">
+            <settings>
+                <label translate="true">Documents</label>
+                <visible>true</visible>
+                <sortable>false</sortable>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Created At</label>
+                <visible>true</visible>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <actionsColumn name="delete" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\DeleteAction">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
