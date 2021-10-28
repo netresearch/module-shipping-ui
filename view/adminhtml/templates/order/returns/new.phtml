@@ -1,0 +1,219 @@
+<?php
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \Magento\Shipping\Block\Adminhtml\Create\Items $itemsBlock */
+/** @var \Netresearch\ShippingUi\ViewModel\Rma\AdminForm $viewModel */
+$viewModel = $block->getData('viewModel');
+$shipments = $viewModel->getShipments();
+$address = $viewModel->getAddress();
+$recipientStreet = $viewModel->getRecipientStreet();
+$carriers = $viewModel->getCarriers();
+?>
+
+<div class="entry-edit form-inline">
+    <form action="<?= $block->escapeUrl($viewModel->getSubmitUrl()) ?>"
+          method="post"
+          enctype="multipart/form-data"
+          class="form-returns-create"
+          id="form-rma"
+          data-mage-init='{"validation": {}}'
+    >
+        <?= $block->getBlockHtml('formkey') ?>
+        <?php if (\count($carriers) === 1): ?>
+            <div>
+                <input type="hidden" name="carrier_code" value="<?= $block->escapeHtmlAttr(array_keys($carriers)[0]) ?>">
+            </div>
+        <?php elseif (\count($carriers) > 1): ?>
+            <section id="form-return-carrier" class="admin__page-section">
+                <div class="admin__field carrier">
+                    <div class="admin__page-section-content">
+                        <div class="admin__page-section-item order-items">
+                            <fieldset class="admin__fieldset">
+                                <legend class="admin__legend">
+                                    <span><?= $block->escapeHtml(__('Shipping Method')) ?></span>
+                                </legend>
+                                <div class="admin__field">
+                                    <?php foreach ($carriers as $carrierCode => $carrierTitle): ?>
+                                        <div class="admin__field-control control admin_field-option">
+                                            <input type="radio"
+                                                   id="<?= $block->escapeHtmlAttr($carrierCode) ?>"
+                                                   name="carrier_code"
+                                                   value="<?= $block->escapeHtmlAttr($carrierCode) ?>">
+                                            <label for="<?= $block->escapeHtmlAttr($carrierCode) ?>" class="admin__field-label"><?= $block->escapeHtml($carrierTitle) ?></label>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
+
+        <section id="form-return-account" class="admin__page-section">
+            <div class="admin__page-section-content">
+                <div class="admin__page-section-item order-billing-address">
+                    <fieldset class="admin__fieldset">
+                        <legend class="admin__legend">
+                            <span><?= $block->escapeHtml(__('Contact Information')) ?></span>
+                        </legend>
+                        <div class="admin__field field-name-firstname required">
+                            <label class="label admin__field-label" for="firstname"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[firstname]" id="firstname" class="maximum-length-255 minimum-length-1 validate-length input-text required-entry admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getFirstname()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('First Name')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field  field-name-lastname required">
+                            <label class="label admin__field-label" for="lastname"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[lastname]" id="lastname" class="maximum-length-255 minimum-length-1 validate-length input-text required-entry admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getLastname()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field company">
+                            <label for="company" class="label admin__field-label"><span><?= $block->escapeHtml(__('Company')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[company]" id="company" class="maximum-length-255 minimum-length-1 validate-length input-text admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getCompany()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Company')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field email required">
+                            <label for="email" class="label admin__field-label"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[email]" id="email" class="validate-email admin__control-text input-text required-entry _required"
+                                       value="<?= $block->escapeHtmlAttr($address->getEmail()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Email')) ?>">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="admin__page-section-item order-shipping-address">
+                    <fieldset class="admin__fieldset">
+                        <legend class="admin__legend"><span><?= $block->escapeHtml(__('Address')) ?></span></legend>
+                        <div class="admin__field  street required">
+                            <label for="street_name" class="label admin__field-label"><span><?= $block->escapeHtml(__('Street Name')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[street_name]"
+                                       id="street_name" class="input-text admin__control-text required-entry"
+                                       value="<?= $block->escapeHtmlAttr($recipientStreet->getName()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Street Name')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field streetnumber required">
+                            <label for="street_number" class="label admin__field-label"><span><?= $block->escapeHtml(__('Street Number')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[street_number]"
+                                       id="street_number" class="input-text admin__control-text required-entry"
+                                       value="<?= $block->escapeHtmlAttr($recipientStreet->getNumber()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Street Number')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field country required">
+                            <label class="label admin__field-label" for="country"><span><span><?= $block->escapeHtml(__('Country')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <?= /* @noEscape */ $viewModel->getCountrySelectHtml($address->getCountryId(), 'address[country]') ?>
+                            </div>
+                        </div>
+
+                        <div class="admin__field region">
+                            <label class="label admin__field-label" for="region_id"><span><?= $block->escapeHtml(__('State/Province')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <select name="address[region_id]" id="region_id" class="admin__control-select validate-select region_id"
+                                        title="<?= $block->escapeHtmlAttr(__('State/Province')) ?>">
+                                    <option value=""><?= $block->escapeHtml(__('Please select a region, state or province.')) ?></option>
+                                </select>
+                                <input type="text" name="address[region]" id="region" class="input-text validate-not-number-first admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getRegion()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('State/Province')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field city required">
+                            <label class="label admin__field-label" for="city"><span><?= $block->escapeHtml(__('City')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[city]" id="city" class="required-entry maximum-length-255 minimum-length-1 validate-length input-text admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getCity()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('City')) ?>">
+                            </div>
+                        </div>
+
+                        <div class="admin__field zip required">
+                            <label class="label admin__field-label" for="zip"><span><?= $block->escapeHtml(__('Zip/Postal Code')) ?></span></label>
+                            <div class="admin__field-control control">
+                                <input type="text" name="address[postcode]" id="zip" class="input-text validate-zip-international required-entry admin__control-text"
+                                       value="<?= $block->escapeHtmlAttr($address->getPostcode()) ?>"
+                                       title="<?= $block->escapeHtmlAttr(__('Zip/Postal Code')) ?>">
+                                <div role="alert" class="message warning" style="display:none">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+        <section id="form-return-items" class="admin__page-section return-items">
+            <div class="admin__page-section-content">
+                <div class="admin__page-section-item order-items">
+                    <fieldset class="admin__fieldset">
+                        <legend class="admin__legend"><span><?= $block->escapeHtml(__('Return Items Information')) ?></span></legend>
+
+                        <?php foreach ($shipments as $shipment): ?>
+                            <table class="data-table admin__table-primary">
+                                <caption><?= $block->escapeHtml(__('Shipment # %1', $shipment->getIncrementId())) ?></caption>
+                                <colgroup>
+                                    <col class="col-ret-item">
+                                    <col class="col-ret-sku">
+                                    <col class="col-ret-qty">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Item')) ?></span></th>
+                                    <th class="col sku" scope="col"><span><?= $block->escapeHtml(__('SKU')) ?></span></th>
+                                    <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                                </tr>
+                                </thead>
+                                <?php $items = $shipment->getAllItems(); ?>
+                                <tbody>
+                                    <?php foreach ($items as $item): ?>
+                                    <tr>
+                                        <td><?= $item->getName() ?></td>
+                                        <td><?= $item->getSku() ?></td>
+                                        <td>
+                                            <input type="number" id="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" min="0" max="<?= /* @noEscape */ (int) $item->getQty() ?>"
+                                                   class="admin__control-text required-entry validate-number-range number-range-0-<?= /* @noEscape */ (int) $item->getQty() ?>"
+                                                   name="shipments[<?= /* @noEscape */ (int) $item->getParentId() ?>][items][<?= /* @noEscape */ (int) $item->getEntityId() ?>]"
+                                                   value="0">
+                                            <label for="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" class="label"><span><?= $block->escapeHtml(__('%1 Items Shipped', (int) $item->getQty())) ?></span></label>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php endforeach; ?>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            require(["prototype", "mage/adminhtml/form"], function(){
+                updater = new RegionUpdater(
+                    'country',
+                    'region',
+                    'region_id',
+                    <?= /* @noEscape */ $viewModel->getRegionJson() ?>,
+                )
+            });
+        </script>
+    </form>
+</div>
