@@ -1,19 +1,36 @@
+"%1 Items Shipped","%1 Items Shipped"
 "(Excl. Tax)","(Excl. Tax)"
 "(Incl. Tax)","(Incl. Tax)"
 "Add Another Package","Add Another Package"
+Address,Address
 "An error occurred while loading map. Please try again later.","An error occurred while loading map. Please try again later."
 Back,Back
 "Batch Process Shipments","Batch Process Shipments"
+Carrier,Carrier
+"Carrier Code","Carrier Code"
 "Changes have been made to this section that have not been saved.","Changes have been made to this section that have not been saved."
 City,City
+Company,Company
+"Contact Information","Contact Information"
 Country,Country
+"Create Return Label","Create Return Label"
 "Create Shipments","Create Shipments"
 "Create Shipping Label","Create Shipping Label"
+"Created At","Created At"
+Delete,Delete
+Documents,Documents
+"Download QR Code","Download QR Code"
+"Download Return Label","Download Return Label"
 Edit,Edit
+Email,Email
 Failed,Failed
+"First Name","First Name"
 "For editing package items click to enlarge","For editing package items click to enlarge"
+Item,Item
 "Item quantity must be between {0} and {1}.","Item quantity must be between {0} and {1}."
 "Label Status","Label Status"
+"Labels for your return shipment (shipment number %1)","Labels for your return shipment (shipment number %1)"
+"Last Name","Last Name"
 "Map data","Map data"
 No,No
 "Not Available","Not Available"
@@ -23,30 +40,45 @@ No,No
 "Package Options","Package Options"
 Partial,Partial
 Pending,Pending
+"Phone Number","Phone Number"
 "Pickup Location","Pickup Location"
+"Please select a region, state or province.","Please select a region, state or province."
 Postcode,Postcode
 Processed,Processed
+Qty,Qty
 "Recipient Street","Recipient Street"
 Remove,Remove
+"Return Items Information","Return Items Information"
+"Return Label","Return Label"
+"Return Label QR Code","Return Label QR Code"
+"Return Shipments","Return Shipments"
+SKU,SKU
 Save,Save
 Search,Search
 Select,Select
 "Service Options","Service Options"
 Services,Services
 "Ship To:","Ship To:"
+"Shipment # %1","Shipment # %1"
 "Shipment Setup","Shipment Setup"
 "Shipment could not be created.","Shipment could not be created."
+"Shipping Method","Shipping Method"
 "Shipping Method:","Shipping Method:"
 "Shipping Services","Shipping Services"
 "Some items are not assigned to a package. Please assign every item to a package.","Some items are not assigned to a package. Please assign every item to a package."
+State/Province,State/Province
 Street,Street
 "Street Name","Street Name"
 "Street Number","Street Number"
+Submit,Submit
 Supplement,Supplement
 "This tab contains invalid data. Please resolve this before saving.","This tab contains invalid data. Please resolve this before saving."
+Title,Title
+"Tracking Number","Tracking Number"
 Yes,Yes
 "You must not refer to a parcel shop, postal office, or similar.","You must not refer to a parcel shop, postal office, or similar."
 "Your input must not include one of the following: ","Your input must not include one of the following: "
 "Your shipping option selections could not be saved.","Your shipping option selections could not be saved."
+"Zip/Postal Code","Zip/Postal Code"
 and,and
 edit,edit
