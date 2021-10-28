@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="nrshipping_order_info_button_returns"/>
     <body>
         <referenceContainer name="order_totals">
             <block class="Netresearch\ShippingUi\Block\AdditionalFee\Total" name="nrshipping_order_additional_fee">
