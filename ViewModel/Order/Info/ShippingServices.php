@@ -17,6 +17,7 @@ use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\InputInter
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\Selection\AssignedSelectionInterface;
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\Selection\SelectionInterface;
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOptionInterface;
+use Netresearch\ShippingCore\Api\ShippingSettings\OrderDataProviderInterface;
 use Netresearch\ShippingCore\Model\ShippingSettings\OrderDataProvider;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Selection\OrderSelectionRepository;
@@ -32,7 +33,7 @@ class ShippingServices implements ArgumentInterface
     private $registry;
 
     /**
-     * @var OrderDataProvider
+     * @var OrderDataProviderInterface
      */
     private $orderDataProvider;
 
@@ -73,7 +74,7 @@ class ShippingServices implements ArgumentInterface
 
     public function __construct(
         Registry $registry,
-        OrderDataProvider $orderDataProvider,
+        OrderDataProviderInterface $orderDataProvider,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         OrderRepositoryInterface $orderRepository,
         OrderSelectionRepository $selectionRepository
