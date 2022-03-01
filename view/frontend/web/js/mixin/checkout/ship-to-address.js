@@ -20,6 +20,8 @@ if (window.checkoutConfig) {
         selections.get().subscribe(function () {
             if (quote.shippingAddress.valueHasMutated) {
                 quote.shippingAddress.valueHasMutated();
+            } else {
+                quote.shippingAddress(quote.shippingAddress());
             }
         });
 
