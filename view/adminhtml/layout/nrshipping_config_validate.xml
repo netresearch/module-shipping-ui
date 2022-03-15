@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.md for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="admin-empty">
+    <body>
+        <referenceContainer name="root">
+            <referenceContainer name="menu.wrapper" remove="true"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block name="nrshipping_config_validation_result" template="Netresearch_ShippingUi::config/validation/result.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Config\Validation</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
