@@ -35,6 +35,6 @@
         "magento/module-tax": "^100.3.5",
         "magento/module-ui": "^101.1.5",
         "magento/module-shipping": "^100.3.5",
-        "netresearch/module-shipping-core": "^2.5.0"
+        "netresearch/module-shipping-core": "^2.7.0"
     }
 }
