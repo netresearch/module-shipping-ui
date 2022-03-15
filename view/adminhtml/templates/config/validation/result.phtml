@@ -1,0 +1,34 @@
+<?php
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \Netresearch\ShippingUi\ViewModel\Config\Validation $viewModel */
+$viewModel = $block->getData('viewModel');
+$currentSection = '';
+$currentGroup = '';
+?>
+
+<?php foreach ($viewModel->getResult() as $index => $row): ?>
+    <?php if ($row->getSectionCode() !== $currentSection): ?>
+        <?php $currentSection = $row->getSectionCode(); ?>
+
+        <?php if ($row->getSectionName()): ?>
+            <h3><?= $block->escapeHtml($row->getSectionName()); ?></h3>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if ($row->getGroupCode() !== $currentGroup): ?>
+    <?php $currentGroup = $row->getGroupCode(); ?>
+        <?php if ($index !== 0): ?>
+            </table>
+        <?php endif; ?>
+        <?php if ($row->getGroupName()): ?>
+        <h4><?= $block->escapeHtml($row->getGroupName()); ?></h4>
+        <table>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <tr>
+        <td class="icon-<?= $row->getStatus() ?>"></td>
+        <td class="name"><?= $block->escapeHtml($row->getName()) ?></td>
+        <td><?= $block->escapeHtml($row->getMessage(), ['em']) ?></td>
+    </tr>
+<?php endforeach; ?>
