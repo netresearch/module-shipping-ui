@@ -17,6 +17,7 @@ Country,Land
 "Create Shipments","Versandetiketten erzeugen"
 "Create Shipping Label","Versandetikett erzeugen"
 "Created At",Erstellungsdatum
+Date,Datum
 Delete,Löschen
 Documents,Dokumente
 "Download QR Code","QR-Code herunterladen"
@@ -32,9 +33,12 @@ Item,Artikel
 "Labels for your return shipment (shipment number %1)","Labels für Ihre Retourenlieferung (Sendungsnummer %1)"
 "Last Name",Nachname
 "Map data",Kartendaten
+"My Return Labels","Meine Rücksendeetiketten"
 No,Nein
+"No return labels were created yet.","Es wurden noch keine Rücksendeetiketten erstellt."
 "Not Available","Nicht verfügbar"
 "Opening Hours",Öffnungszeiten
+"Order #","Bestellung #"
 "Package %1","Paket %1"
 "Package Items","Artikel im Paket"
 "Package Options",Paket-Parameter
@@ -51,6 +55,7 @@ Remove,Entfernen
 "Return Items Information",Retouren-Artikel
 "Return Label",Retourenetikett
 "Return Label QR Code","QR-Code für die Retouren-Einlieferung"
+"Return Labels","Retourenetiketten"
 "Return Shipments",Rücksendungen
 SKU,SKU
 Save,Speichern
