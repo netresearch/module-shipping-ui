@@ -42,7 +42,7 @@ class Documents extends Column
                     static function (DocumentLinkInterface $link) {
                         return sprintf('<li><a href="%s">%s</a></li>', $link->getUrl(), $link->getTitle());
                     },
-                    $this->getDocumentLinks->execute((int) $item['entity_id'])
+                    $this->getDocumentLinks->execute((int) $item['order_id'], (int) $item['entity_id'])
                 );
 
                 $html = sprintf('<ul>%s</ul>', implode('', $linkItems));
