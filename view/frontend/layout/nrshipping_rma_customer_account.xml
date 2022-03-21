@@ -10,7 +10,7 @@
     <body>
         <referenceBlock name="sidebar.additional" remove="true"/>
         <referenceBlock name="customer_account_navigation">
-            <action method="setActive"><argument name="path" xsi:type="string">sales/order/history</argument></action>
+            <action method="setActive"><argument name="path" xsi:type="string">nrshipping/rma</argument></action>
         </referenceBlock>
     </body>
 </page>

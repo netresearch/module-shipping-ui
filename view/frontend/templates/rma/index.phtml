@@ -1,0 +1,57 @@
+<?php
+/**
+ * See LICENSE.md for license details.
+ */
+?>
+
+<?php
+/** @var \Netresearch\ShippingUi\Block\Rma\Listing $block */
+/** @var \Netresearch\ShippingUi\ViewModel\Rma\CustomerListing $viewModel */
+
+$viewModel = $block->getData('viewModel');
+?>
+<?php $_trackCollection = $viewModel->getTrackCollection(); ?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_trackCollection->getSize()) : ?>
+    <div class="table-wrapper">
+        <table class="data table" id="my-return-labels-table">
+            <caption class="table-caption"><?= $block->escapeHtml(__('Return Labels')) ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col date"><?= $block->escapeHtml(__('Date')) ?></th>
+                    <th scope="col" class="col id"><?= $block->escapeHtml(__('Order #')) ?></th>
+                    <th scope="col" class="col carrier"><?= $block->escapeHtml(__('Carrier')) ?></th>
+                    <th scope="col" class="col number"><?= $block->escapeHtml(__('Tracking Number')) ?></th>
+                    <th scope="col" class="col documents"><?= $block->escapeHtml(__('Documents')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php /** @var \Netresearch\ShippingCore\Api\Data\ReturnShipment\TrackInterface|\Magento\Framework\DataObject $_track */ ?>
+                <?php foreach ($_trackCollection as $_track) : ?>
+                    <tr>
+                        <td data-th="<?= $block->escapeHtml(__('Date')) ?>" class="col date"><?= /* @noEscape */ $block->formatDate($_track->getCreatedAt()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Order #')) ?>" class="col id">
+                            <a href="<?= $block->escapeUrl($viewModel->getOrderViewUrl($_track)) ?>" class="action view">
+                                <span><?= $block->escapeHtml($viewModel->getOrderIncrementId($_track)) ?></span>
+                            </a>
+                        </td>
+                        <td data-th="<?= $block->escapeHtml(__('Carrier')) ?>" class="col carrier"><?= $block->escapeHtml($_track->getTitle()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Tracking Number')) ?>" class="col number"><?= /* @noEscape */ $viewModel->getTrackingLink($_track) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Documents')) ?>" class="col documents">
+                            <ul>
+                                <?php foreach ($viewModel->getDocumentLinks($_track) as $link): ?>
+                                    <li><a href="<?= $block->escapeUrl($link->getUrl()) ?>"><?= $block->escapeHtml($link->getTitle()) ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml(__('No return labels were created yet.')) ?></span></div>
+<?php endif ?>
