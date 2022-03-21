@@ -12,6 +12,11 @@
             </argument>
         </arguments>
     </type>
+    <type name="Netresearch\ShippingUi\ViewModel\Rma\CustomerListing">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
     <type name="Netresearch\ShippingUi\ViewModel\Rma\CustomerUrlProvider">
         <arguments>
             <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>

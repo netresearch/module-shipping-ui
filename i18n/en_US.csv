@@ -17,6 +17,7 @@ Country,Country
 "Create Shipments","Create Shipments"
 "Create Shipping Label","Create Shipping Label"
 "Created At","Created At"
+Date,Date
 Delete,Delete
 Documents,Documents
 "Download QR Code","Download QR Code"
@@ -32,9 +33,12 @@ Item,Item
 "Labels for your return shipment (shipment number %1)","Labels for your return shipment (shipment number %1)"
 "Last Name","Last Name"
 "Map data","Map data"
+"My Return Labels","My Return Labels"
 No,No
+"No return labels were created yet.","No return labels were created yet."
 "Not Available","Not Available"
 "Opening Hours","Opening Hours"
+"Order #","Order #"
 "Package %1","Package %1"
 "Package Items","Package Items"
 "Package Options","Package Options"
@@ -51,6 +55,7 @@ Remove,Remove
 "Return Items Information","Return Items Information"
 "Return Label","Return Label"
 "Return Label QR Code","Return Label QR Code"
+"Return Labels","Return Labels"
 "Return Shipments","Return Shipments"
 SKU,SKU
 Save,Save
