@@ -45,7 +45,7 @@ class Documents extends Column
                     $this->getDocumentLinks->execute((int) $item['order_id'], (int) $item['entity_id'])
                 );
 
-                $html = sprintf('<ul>%s</ul>', implode('', $linkItems));
+                $html = sprintf('<ul class="document-links">%s</ul>', implode('', $linkItems));
                 $item[$fieldName] = $html;
             }
         }
