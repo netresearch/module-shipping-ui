@@ -12,7 +12,6 @@ use Netresearch\ShippingCore\Api\Util\LabelDataProviderInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Netresearch\ShippingCore\Api\Util\OrderProviderInterface;
-use Netresearch\ShippingCore\Model\Util\CarrierDataProvider;
 
 /**
  * View model class for displaying return shipment label data.
