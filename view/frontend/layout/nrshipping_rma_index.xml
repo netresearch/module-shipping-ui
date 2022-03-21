@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * See LICENSE.md for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+
+    <body>
+        <referenceContainer name="content">
+            <block name="nrshipping.rma.returns.label" class="Netresearch\ShippingUi\Block\Rma\Listing" template="Netresearch_ShippingUi::rma/index.phtml" cacheable="false">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Rma\CustomerListing</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
