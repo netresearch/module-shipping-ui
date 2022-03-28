@@ -11,24 +11,31 @@ namespace Netresearch\ShippingUi\Component\Listing\Column\Rma;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
-use Netresearch\ShippingCore\Api\Data\ReturnShipment\DocumentLinkInterface;
-use Netresearch\ShippingCore\Api\ReturnShipment\GetDocumentLinksInterface;
+use Netresearch\ShippingCore\Api\ReturnShipment\DocumentDownloadInterface;
+use Netresearch\ShippingCore\Api\ReturnShipment\TrackRepositoryInterface;
 
 class Documents extends Column
 {
     /**
-     * @var GetDocumentLinksInterface
+     * @var TrackRepositoryInterface
      */
-    private $getDocumentLinks;
+    private $trackRepository;
+
+    /**
+     * @var DocumentDownloadInterface
+     */
+    private $download;
 
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        GetDocumentLinksInterface $getDocumentLinks,
+        TrackRepositoryInterface $trackRepository,
+        DocumentDownloadInterface $download,
         array $components = [],
         array $data = []
     ) {
-        $this->getDocumentLinks = $getDocumentLinks;
+        $this->trackRepository = $trackRepository;
+        $this->download = $download;
 
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
@@ -38,15 +45,18 @@ class Documents extends Column
         if (isset($dataSource['data']['items'])) {
             $fieldName = $this->getData('name');
             foreach ($dataSource['data']['items'] as & $item) {
-                $linkItems = array_map(
-                    static function (DocumentLinkInterface $link) {
-                        return sprintf('<li><a href="%s">%s</a></li>', $link->getUrl(), $link->getTitle());
-                    },
-                    $this->getDocumentLinks->execute((int) $item['order_id'], (int) $item['entity_id'])
-                );
+                $track = $this->trackRepository->get((int) $item['entity_id']);
+                $linkItems = '';
 
-                $html = sprintf('<ul class="document-links">%s</ul>', implode('', $linkItems));
-                $item[$fieldName] = $html;
+                foreach ($track->getDocuments() as $document) {
+                    $linkItems .= sprintf(
+                        '<li><a href="%s">%s</a></li>',
+                        $this->download->getUrl($document, $track),
+                        $document->getTitle()
+                    );
+                }
+
+                $item[$fieldName] = '<ul class="document-links">' . $linkItems . '</ul>';
             }
         }
 

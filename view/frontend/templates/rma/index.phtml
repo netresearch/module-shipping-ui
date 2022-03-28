@@ -39,8 +39,8 @@ $viewModel = $block->getData('viewModel');
                         <td data-th="<?= $block->escapeHtml(__('Tracking Number')) ?>" class="col number"><?= /* @noEscape */ $viewModel->getTrackingLink($_track) ?></td>
                         <td data-th="<?= $block->escapeHtml(__('Documents')) ?>" class="col documents">
                             <ul>
-                                <?php foreach ($viewModel->getDocumentLinks($_track) as $link): ?>
-                                    <li><a href="<?= $block->escapeUrl($link->getUrl()) ?>"><?= $block->escapeHtml($link->getTitle()) ?></a></li>
+                                <?php foreach ($_track->getDocuments() as $_document): ?>
+                                    <li><a href="<?= $block->escapeUrl($viewModel->getDownloadUrl($_document, $_track)) ?>"><?= $block->escapeHtml($_document->getTitle()) ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </td>
