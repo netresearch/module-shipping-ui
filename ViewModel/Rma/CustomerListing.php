@@ -16,9 +16,9 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Shipping\Model\Carrier\AbstractCarrierOnline;
 use Magento\Shipping\Model\CarrierFactory;
 use Magento\Shipping\Model\Tracking\Result\Status;
-use Netresearch\ShippingCore\Api\Data\ReturnShipment\DocumentLinkInterface;
+use Netresearch\ShippingCore\Api\Data\ReturnShipment\DocumentInterface;
 use Netresearch\ShippingCore\Api\Data\ReturnShipment\TrackInterface;
-use Netresearch\ShippingCore\Api\ReturnShipment\GetDocumentLinksInterface;
+use Netresearch\ShippingCore\Api\ReturnShipment\DocumentDownloadInterface;
 use Netresearch\ShippingCore\Model\ResourceModel\ReturnShipment\TrackCollection;
 use Netresearch\ShippingCore\Model\ResourceModel\ReturnShipment\TrackCollectionFactory;
 
@@ -48,9 +48,9 @@ class CustomerListing implements ArgumentInterface
     private $carrierFactory;
 
     /**
-     * @var GetDocumentLinksInterface
+     * @var DocumentDownloadInterface
      */
-    private $getDocumentLinks;
+    private $download;
 
     /**
      * @var Collection
@@ -62,13 +62,13 @@ class CustomerListing implements ArgumentInterface
         TrackCollectionFactory $collectionFactory,
         UrlInterface $urlBuilder,
         CarrierFactory $carrierFactory,
-        GetDocumentLinksInterface $getDocumentLinks
+        DocumentDownloadInterface $download
     ) {
         $this->customerSession = $customerSession;
         $this->collectionFactory = $collectionFactory;
         $this->urlBuilder = $urlBuilder;
         $this->carrierFactory = $carrierFactory;
-        $this->getDocumentLinks = $getDocumentLinks;
+        $this->download = $download;
 
         $this->trackCollection = null;
     }
@@ -112,14 +112,8 @@ class CustomerListing implements ArgumentInterface
         return $track->getTrackNumber();
     }
 
-    /**
-     * Get a track's return documents.
-     *
-     * @param TrackInterface $track
-     * @return DocumentLinkInterface[]
-     */
-    public function getDocumentLinks(TrackInterface $track): array
+    public function getDownloadUrl(DocumentInterface $document, TrackInterface $track): string
     {
-        return $this->getDocumentLinks->execute($track->getOrderId(), $track->getEntityId());
+        return $this->download->getUrl($document, $track);
     }
 }

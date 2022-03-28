@@ -73,7 +73,7 @@ See LICENSE.md for license details.
                 <sorting>desc</sorting>
             </settings>
         </column>
-        <actionsColumn name="delete" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\DeleteAction">
+        <actionsColumn name="delete" class="Netresearch\ShippingUi\Component\Listing\Column\Rma\Actions">
             <settings>
                 <indexField>entity_id</indexField>
             </settings>
