@@ -24,6 +24,7 @@ $carriers = $viewModel->getCarriers();
     <fieldset class="fieldset">
         <?= /* @noEscape */ $block->getBlockHtml('formkey') ?>
         <input type="hidden" name="carrier_code" value="<?= $block->escapeHtmlAttr(array_keys($carriers)[0]) ?>">
+        <input type="hidden" name="view_url" value="<?= $block->escapeHtmlAttr($viewModel->getViewUrl()) ?>">
         <legend class="legend"><span><?= $block->escapeHtml(__('Contact Information')) ?></span></legend>
 
         <div class="field field-name-firstname required">
