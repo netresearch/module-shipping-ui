@@ -70,4 +70,21 @@ class CustomerUrlProvider
             ['order_id' => (int) $this->orderProvider->getOrder()->getEntityId()]
         );
     }
+
+    public function getViewUrl(int $trackId = null): string
+    {
+        if ($this->customerSession->isLoggedIn()) {
+            $routePath = 'nrshipping/rma/view';
+        } else {
+            $routePath = 'nrshipping/rma_view/guest';
+        }
+
+        return $this->urlBuilder->getUrl(
+            $routePath,
+            [
+                'order_id' => (int) $this->orderProvider->getOrder()->getEntityId(),
+                'track_id' => $trackId ?: 'TRACK_ID',
+            ]
+        );
+    }
 }

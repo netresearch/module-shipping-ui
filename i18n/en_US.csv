@@ -20,8 +20,7 @@ Country,Country
 Date,Date
 Delete,Delete
 Documents,Documents
-"Download QR Code","Download QR Code"
-"Download Return Label","Download Return Label"
+"Download %1","Download %1"
 Edit,Edit
 Email,Email
 Failed,Failed
@@ -53,14 +52,13 @@ Qty,Qty
 "Recipient Street","Recipient Street"
 Remove,Remove
 "Return Items Information","Return Items Information"
-"Return Label","Return Label"
-"Return Label QR Code","Return Label QR Code"
 "Return Labels","Return Labels"
 "Return Shipments","Return Shipments"
 SKU,SKU
 Save,Save
 Search,Search
 Select,Select
+"Send Return Label","Send Return Label"
 "Service Options","Service Options"
 Services,Services
 "Ship To:","Ship To:"
