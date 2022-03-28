@@ -13,7 +13,7 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
-class DeleteAction extends Column
+class Actions extends Column
 {
     /**
      * @var UrlInterface
@@ -28,19 +28,31 @@ class DeleteAction extends Column
         array $data = []
     ) {
         $this->urlBuilder = $urlBuilder;
+
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            foreach ($dataSource['data']['items'] as & $item) {
-                $item[$this->getData('name')]['delete'] = [
+            $fieldName = $this->getData('name');
+            foreach ($dataSource['data']['items'] as &$item) {
+                $item[$fieldName]['delete'] = [
                     'href' => $this->urlBuilder->getUrl(
                         'nrshipping/order_rma/delete',
                         ['track_id' => $item['entity_id']]
                     ),
                     'label' => __('Delete'),
+                    'hidden' => false,
+                    '__disableTmpl' => true
+                ];
+
+                $item[$fieldName]['send_label'] = [
+                    'href' => $this->urlBuilder->getUrl(
+                        'nrshipping/order_rma/sendEmail',
+                        ['track_id' => $item['entity_id']]
+                    ),
+                    'label' => __('Send Return Label'),
                     'hidden' => false,
                     '__disableTmpl' => true
                 ];

@@ -112,6 +112,11 @@ class CustomerForm extends AbstractForm implements ArgumentInterface
         return $this->urlProvider->getSubmitUrl();
     }
 
+    public function getViewUrl(): string
+    {
+        return $this->urlProvider->getViewUrl();
+    }
+
     /**
      * Obtain countries for which postal code is optional as JSON data.
      *
