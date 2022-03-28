@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Netresearch\ShippingUi\ViewModel\Rma;
 
-use Netresearch\ShippingCore\Api\Util\LabelDataProviderInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Netresearch\ShippingCore\Api\Data\ReturnShipment\DocumentInterface;
+use Netresearch\ShippingCore\Api\Data\ReturnShipment\TrackInterface;
+use Netresearch\ShippingCore\Api\ReturnShipment\CurrentTrackInterface;
+use Netresearch\ShippingCore\Api\ReturnShipment\DocumentDownloadInterface;
 use Netresearch\ShippingCore\Api\Util\OrderProviderInterface;
 
 /**
@@ -29,49 +32,81 @@ class CustomerLabel implements ArgumentInterface
     private $orderProvider;
 
     /**
-     * @var LabelDataProviderInterface
+     * @var CurrentTrackInterface
      */
-    private $labelDataProvider;
+    private $trackProvider;
+
+    /**
+     * @var DocumentDownloadInterface
+     */
+    private $download;
 
     public function __construct(
         AssetRepository $assetRepository,
         OrderProviderInterface $orderProvider,
-        LabelDataProviderInterface $labelDataProvider
+        CurrentTrackInterface $trackProvider,
+        DocumentDownloadInterface $download
     ) {
         $this->assetRepository = $assetRepository;
         $this->orderProvider = $orderProvider;
-        $this->labelDataProvider = $labelDataProvider;
+        $this->trackProvider = $trackProvider;
+        $this->download = $download;
     }
 
     /**
-     * @param string $fileExt
-     * @return string
+     * @return DocumentInterface[]
      */
-    public function getFileName(string $fileExt): string
+    public function getDocuments(): array
     {
-        $filename = sprintf(
-            '%s-%s-(%s).%s',
-            $this->orderProvider->getOrder()->getStore()->getFrontendName(),
-            $this->orderProvider->getOrder()->getRealOrderId(),
-            $this->getTrackingNumber(),
-            $fileExt
-        );
+        $track = $this->trackProvider->get();
+        if (!$track instanceof TrackInterface) {
+            return [];
+        }
 
-        return str_replace(' ', '_', $filename);
+        return $track->getDocuments();
     }
 
     /**
-     * @return string
+     * @return DocumentInterface[]
      */
+    public function getPdfDocuments(): array
+    {
+        return array_filter(
+            $this->getDocuments(),
+            function (DocumentInterface $document) {
+                return ($document->getMediaType() === 'application/pdf');
+            }
+        );
+    }
+
+    /**
+     * @return DocumentInterface[]
+     */
+    public function getPNGDocuments(): array
+    {
+        return array_filter(
+            $this->getDocuments(),
+            function (DocumentInterface $document) {
+                return ($document->getMediaType() === 'image/png');
+            }
+        );
+    }
+
+    public function getFileName(DocumentInterface $document): string
+    {
+        return $this->download->getFileName($document, $this->trackProvider->get(), $this->orderProvider->getOrder());
+    }
+
     public function getTrackingNumber(): string
     {
-        $labelResponse = $this->labelDataProvider->getLabelResponse();
-        return $labelResponse ? $labelResponse->getTrackingNumber() : '';
+        $track = $this->trackProvider->get();
+        if (!$track instanceof TrackInterface) {
+            return '';
+        }
+
+        return $track->getTrackNumber();
     }
 
-    /**
-     * @return string
-     */
     public function getTrackingUrl(): string
     {
         $trackingNumber = $this->getTrackingNumber();
@@ -83,41 +118,13 @@ class CustomerLabel implements ArgumentInterface
     }
 
     /**
-     * @return string
-     */
-    public function getShippingLabel(): string
-    {
-        $labelResponse = $this->labelDataProvider->getLabelResponse();
-        foreach ($labelResponse->getDocuments() as $document) {
-            if ($document->getMimeType() === 'application/pdf') {
-                return base64_encode($document->getLabelData());
-            }
-        }
-
-        return '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getQrLabel(): string
-    {
-        $labelResponse = $this->labelDataProvider->getLabelResponse();
-        foreach ($labelResponse->getDocuments() as $document) {
-            if ($document->getMimeType() === 'image/png') {
-                return base64_encode($document->getLabelData());
-            }
-        }
-
-        return '';
-    }
-
-    /**
      * Get the PDF sample image.
      *
      * @return string
+     *
+     * @todo(nr): This is actually a DHL Paket preview. It would be better to let the carrier provide the preview image.
      */
-    public function getPdfSampleImage(): string
+    public function getPdfSampleImageUrl(): string
     {
         return $this->assetRepository->getUrl('Netresearch_ShippingUi::images/return-label.png');
     }
