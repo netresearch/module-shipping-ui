@@ -28,8 +28,8 @@ Requirements
 Compatibility
 -------------
 
-* Magento >= 2.3.5+
-* Magento >= 2.4.0+
+* Magento >= 2.3.5
+* Magento >= 2.4.0
 
 License
 -------
@@ -39,4 +39,4 @@ License
 Copyright
 ---------
 
-(c) 2021 Netresearch DTT GmbH
+(c) 2022 Netresearch DTT GmbH
