@@ -18,12 +18,14 @@ use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\Selection\
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\Selection\SelectionInterface;
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOptionInterface;
 use Netresearch\ShippingCore\Api\ShippingSettings\OrderDataProviderInterface;
-use Netresearch\ShippingCore\Model\ShippingSettings\OrderDataProvider;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Selection\OrderSelectionRepository;
 
 /**
- * @todo(nr): this needs cleanup and some proper documentation
+ * @deprecated obsolete, replaced
+ *
+ * @see ServiceSelection
+ * @see DeliveryLocation
  */
 class ShippingServices implements ArgumentInterface
 {
@@ -232,8 +234,7 @@ class ShippingServices implements ArgumentInterface
     /**
      * The only way to find all inputs that belong to a shop finder
      * is to search for a ShippingOption with an input of type
-     * Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes::INPUT_TYPE_LOCATION_FINDER
-     * and return all of its inputs.
+     * 'locationfinder' and return all of its inputs.
      *
      * @return InputInterface[]
      */
