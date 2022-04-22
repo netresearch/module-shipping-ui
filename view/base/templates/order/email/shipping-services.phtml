@@ -3,10 +3,15 @@
  * See LICENSE.md for license details.
  */
 /** @var \Magento\Framework\View\Element\Template $block */
-/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices $viewModel */
-$viewModel = $block->getData('viewModel');
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\DeliveryLocation $locationViewModel */
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ServiceSelection $selectionViewModel */
+$locationViewModel = $block->getData('locationViewModel');
+$selectionViewModel = $block->getData('selectionViewModel');
+
 $orderId = (int) $this->getData('order_id');
-$services = $orderId ? $viewModel->getSelectedServicesByOrderId($orderId): [];
+
+$services = $orderId ? $selectionViewModel->getValues($orderId) : [];
+$deliveryAddressLines = $locationViewModel->getAddressLines($orderId);
 ?>
 <?php if (!empty($services)): ?>
     <table class="order-details nrshipping-selected-services">
@@ -21,11 +26,11 @@ $services = $orderId ? $viewModel->getSelectedServicesByOrderId($orderId): [];
                             <td style="padding: 0 0 0 10px"><?= $block->escapeHtml($service['value']) ?></td>
                         </tr>
                     <?php endforeach; ?>
-                    <?php if ($viewModel->getPickupLocationAddress()) : ?>
+                    <?php if (!empty($deliveryAddressLines)): ?>
                         <tr>
-                            <th><?= $block->escapeHtml(__('Pickup Location')) ?></th>
+                            <th><?= $block->escapeHtml(__('Location Address')) ?></th>
                             <td>
-                                <?php foreach ($viewModel->getPickupLocationAddress() as $addressLine) : ?>
+                                <?php foreach ($deliveryAddressLines as $addressLine) : ?>
                                     <div><?= $block->escapeHtml($addressLine) ?></div>
                                 <?php endforeach; ?>
                             </td>
