@@ -3,11 +3,17 @@
  * See LICENSE.md for license details.
  */
 /** @var \Magento\Framework\View\Element\Template $block */
-/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices $viewModel */
-$viewModel = $block->getData('viewModel');
-$services = $viewModel->getSelectedServices();
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\DeliveryLocation $locationViewModel */
+/** @var \Netresearch\ShippingUi\ViewModel\Order\Info\ServiceSelection $selectionViewModel */
+$locationViewModel = $block->getData('locationViewModel');
+$selectionViewModel = $block->getData('selectionViewModel');
+
+$orderId = $selectionViewModel->getOrder()->getId();
+
+$services = $selectionViewModel->getValues($orderId);
+$deliveryAddressLines = $locationViewModel->getAddressLines($orderId);
 ?>
-<?php if (count($services) > 0) : ?>
+<?php if (!empty($services)): ?>
     <section class="nrshipping-selected-services">
         <div class="section-title">
             <span class="title"><?= $block->escapeHtml(__('Shipping Services')) ?></span>
@@ -23,11 +29,11 @@ $services = $viewModel->getSelectedServices();
                         </tr>
                     <?php endforeach; ?>
 
-                    <?php if ($viewModel->getPickupLocationAddress()) : ?>
+                    <?php if (!empty($deliveryAddressLines)) : ?>
                     <tr>
-                        <th><?= $block->escapeHtml(__('Pickup Location')) ?></th>
+                        <th><?= $block->escapeHtml(__('Location Address')) ?></th>
                         <td>
-                            <?php foreach ($viewModel->getPickupLocationAddress() as $addressLine) : ?>
+                            <?php foreach ($deliveryAddressLines as $addressLine) : ?>
                                 <div><?= $block->escapeHtml($addressLine) ?></div>
                             <?php endforeach; ?>
                         </td>
