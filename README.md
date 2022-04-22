@@ -1,24 +1,9 @@
-
-
-## Usage concepts
-
-This module should not be required directly or used standalone.
-
-All functionality provided will be activated through the Netresearch_ShippingCore module.
-
-
 Netresearch UI Extension
-================
+========================
 
 The Netresearch UI package provides the presentation layer within the Magento 2 application for all custom functionality of the Netresearch Shipping Core module.
                           
-This module should not be required directly or used standalone.
-
-All functionality provided will be activated through the Netresearch_ShippingCore module.
-
-Features
---------
-
+This module should not be required directly or used standalone. All functionality provided will be activated through the Netresearch_ShippingCore module.
 
 Requirements
 ------------
