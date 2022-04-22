@@ -31,6 +31,7 @@ Item,Item
 "Label Status","Label Status"
 "Labels for your return shipment (shipment number %1)","Labels for your return shipment (shipment number %1)"
 "Last Name","Last Name"
+"Location Address","Location Address"
 "Map data","Map data"
 "My Return Labels","My Return Labels"
 No,No
@@ -44,7 +45,6 @@ No,No
 Partial,Partial
 Pending,Pending
 "Phone Number","Phone Number"
-"Pickup Location","Pickup Location"
 "Please select a region, state or province.","Please select a region, state or province."
 Postcode,Postcode
 Processed,Processed
