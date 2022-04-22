@@ -9,7 +9,8 @@
         <referenceBlock name="order_additional_info">
             <block name="nrshipping_services" class="Magento\Backend\Block\Template" template="Netresearch_ShippingUi::order/view/info/shipping-services.phtml">
                 <arguments>
-                    <argument name="viewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Order\Info\ShippingServices</argument>
+                    <argument name="locationViewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Order\Info\DeliveryLocation</argument>
+                    <argument name="selectionViewModel" xsi:type="object">Netresearch\ShippingUi\ViewModel\Order\Info\ServiceSelection</argument>
                 </arguments>
             </block>
             <referenceContainer name="order_totals">
