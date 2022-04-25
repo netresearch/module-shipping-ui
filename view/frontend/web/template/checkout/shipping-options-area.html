@@ -1,36 +1,37 @@
-<div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor() }">
+<div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor() }"
+     xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <fieldset class="fieldset nrshipping-settings" data-bind="css: getCarrierCode()">
-        <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"/>
-        <h3 if="title()" text="title" class="title"/>
+        <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"></img>
+        <h3 if="title()" text="title" class="title"></h3>
 
         <!-- ko foreach: { data: commentsBefore, as: 'comment' } -->
             <p>
-                <span data-bind="html: comment.content"/>
+                <span data-bind="html: comment.content"></span>
                 <span if="comment.hasFootnote" class="asterisk">*</span>
             </p>
         <!-- /ko -->
         <!-- ko foreach: { data: elems, as: 'element' } -->
-            <render if="hasTemplate()"/>
+            <render if="hasTemplate()"></render>
         <!-- /ko -->
 
         <!-- ko if: footnotes -->
         <!-- ko foreach: { data: footnotes, as: 'footnote' } -->
             <p class="field-note">
                 <span class="asterisk">*</span>
-                <span data-bind="html: footnote.content"/>
+                <span data-bind="html: footnote.content"></span>
             </p>
         <!-- /ko -->
         <!-- /ko -->
 
         <!-- ko foreach: { data: commentsAfter, as: 'comment' } -->
             <p class="field-note">
-                <span data-bind="html: comment.content"/>
+                <span data-bind="html: comment.content"></span>
             </p>
         <!-- /ko -->
 
         <!-- ko if: errors() -->
         <!-- ko foreach: { data: errors, as: 'error' } -->
-            <label class="message error" text="error"/>
+            <label class="message error" text="error"></label>
         <!-- /ko -->
         <!-- /ko -->
     </fieldset>
