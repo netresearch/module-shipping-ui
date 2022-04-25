@@ -1,6 +1,6 @@
 <div class="package-action-buttons top-buttons" id="nrshipping-package-buttons">
 
-    <img data-bind="attr: {src: getImage()}" if="hasImage"/>
+    <img data-bind="attr: {src: getImage()}" if="hasImage"></img>
     <div class="action-button-container">
         <button id="new_package" type="button"
                 class="scalable ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
@@ -34,10 +34,10 @@
         </button>
     </div>
 </div>
-<div class="message message-warning" style="display: none"/>
+<div class="message message-warning" style="display: none"></div>
 <!-- ko if: errors()-->
 <!-- ko foreach: { data: errors, as: 'error' } -->
-<div class="message error" text="error"/>
+<div class="message error" text="error"></div>
 <!-- /ko -->
 <!-- /ko -->
 <div id="grid_tab" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
@@ -60,6 +60,6 @@
         </li>
     </ul>
     <each args="data: elems, as: 'element'">
-        <render if="hasTemplate()"/>
+        <render if="hasTemplate()"></render>
     </each>
 </div>
