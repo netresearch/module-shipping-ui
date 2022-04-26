@@ -64,6 +64,7 @@ class DeliveryLocation implements ArgumentInterface
 
         // define fields and sort order
         $lines = [
+            Codes::SERVICE_INPUT_DELIVERY_LOCATION_NAME => '',
             Codes::SERVICE_INPUT_DELIVERY_LOCATION_COMPANY => '',
             Codes::SERVICE_INPUT_DELIVERY_LOCATION_STREET => '',
             Codes::SERVICE_INPUT_DELIVERY_LOCATION_POSTAL_CODE => '',
