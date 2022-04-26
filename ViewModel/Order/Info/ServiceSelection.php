@@ -14,7 +14,6 @@ use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Sales\Model\Order;
 use Netresearch\ShippingCore\Api\Data\ShippingSettings\ShippingOption\InputInterface;
 use Netresearch\ShippingCore\Api\ShippingSettings\OrderDataProviderInterface;
-use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Codes;
 use Netresearch\ShippingCore\Model\ShippingSettings\ShippingOption\Selection\OrderSelectionManager;
 
 class ServiceSelection implements ArgumentInterface
@@ -65,7 +64,7 @@ class ServiceSelection implements ArgumentInterface
     {
         switch ($input->getInputType()) {
             case InputInterface::INPUT_TYPE_CHECKBOX:
-            case Codes::INPUT_TYPE_LOCATION_FINDER:
+            case InputInterface::INPUT_TYPE_LOCATION_FINDER:
                 return $input->getDefaultValue() ? __('Yes')->render() : __('No')->render();
             case InputInterface::INPUT_TYPE_RADIO:
             case InputInterface::INPUT_TYPE_SELECT:
