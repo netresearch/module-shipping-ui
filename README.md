@@ -8,7 +8,7 @@ This module should not be required directly or used standalone. All functionalit
 Requirements
 ------------
 
-* PHP >= 7.1.3
+* PHP >= 7.2
 
 Compatibility
 -------------
