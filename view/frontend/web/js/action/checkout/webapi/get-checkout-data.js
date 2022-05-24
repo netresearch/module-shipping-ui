@@ -37,7 +37,7 @@ define([
         request.post(
             serviceUrl,
             JSON.stringify(payload)
-        ).success(
+        ).done(
             function (response) {
                 if (response['carriers'] !== undefined) {
                     // we probably have a NrShippingSettings object, store it in local storage
