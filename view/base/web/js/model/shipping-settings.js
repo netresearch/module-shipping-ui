@@ -76,7 +76,7 @@ define([
      *     input_type: string,
      *     label: string,
       *    label_visible: bool,
-     *     options: {label: string, value: string, disabled: boolean}
+     *     options: {label: string, value: string, disabled: boolean},
      *     disabled: boolean,
      *     placeholder: string,
      *     sort_order: int,
