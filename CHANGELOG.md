@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.3.1
+
+### Fixed
+
+- Replace deprecated XHR callback in checkout, reported via issue [#5](https://github.com/netresearch/module-shipping-ui/issues/5).
+
 ## 2.3.0
 
 Magento 2.4.4 compatibility release
@@ -20,7 +26,7 @@ Magento 2.4.4 compatibility release
 
 ### Fixed
 
-- Display selected shipping services in batch emails, reported via [issue #4](https://github.com/netresearch/module-shipping-ui/issues/4).
+- Display selected shipping services in batch emails, reported via issue [#4](https://github.com/netresearch/module-shipping-ui/issues/4).
 
 ## 2.2.0
 
