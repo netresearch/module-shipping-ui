@@ -67,6 +67,7 @@ class ServiceSelection implements ArgumentInterface
             case InputInterface::INPUT_TYPE_LOCATION_FINDER:
                 return $input->getDefaultValue() ? __('Yes')->render() : __('No')->render();
             case InputInterface::INPUT_TYPE_RADIO:
+            case InputInterface::INPUT_TYPE_RADIOSET:
             case InputInterface::INPUT_TYPE_SELECT:
                 foreach ($input->getOptions() as $option) {
                     if ($option->getValue() === $input->getDefaultValue()) {
