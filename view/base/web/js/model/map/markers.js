@@ -42,7 +42,7 @@ define([
          * Popups are initialized as custom JavaScript components
          * with full knockout.js functionality.
          *
-         * @param {NrLocation} location
+         * @param {NrShippingLocation} location
          * @return {leaflet.Marker}
          */
         createPopupMarker: function (location) {

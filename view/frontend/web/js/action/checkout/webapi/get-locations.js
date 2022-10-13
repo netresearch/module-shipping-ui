@@ -25,7 +25,7 @@ define([
      *         company: string,
      *         postal_code: string,
      *         city: string,
-     *         street: string
+     *         street: string,
      *         country_code: string,
      *     },
      *     latitude: float,
