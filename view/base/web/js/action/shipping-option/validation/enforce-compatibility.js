@@ -54,6 +54,10 @@ define([
                             // The '*' value matches any "truthy" value
                             return !!selection.value;
                         }
+                        if (rule.trigger_value.startsWith('/') && rule.trigger_value.endsWith('/')) {
+                            // Regex value
+                            return selection.value.search(new RegExp(rule.trigger_value.slice(1, -1))) !== -1;
+                        }
                         // Otherwise, we need an exact match */
                         return selection.value === rule.trigger_value;
                     }();
