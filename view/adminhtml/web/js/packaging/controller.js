@@ -11,6 +11,7 @@ define([
     'Netresearch_ShippingUi/js/packaging/action/submit',
     'Netresearch_ShippingUi/js/action/shipping-option/validation/validate-selection',
     'Netresearch_ShippingUi/js/action/shipping-option/validation/validate-compatibility',
+    'Netresearch_ShippingUi/js/action/shipping-option/validation/enforce-compatibility',
     'Netresearch_ShippingUi/js/packaging/model/item-quantity',
     'Netresearch_ShippingUi/js/packaging/model/item-combination-rules',
 ], function (
@@ -26,6 +27,7 @@ define([
     submit,
     validateSelection,
     validateCompatibility,
+    enforceCompatibility,
     itemQuantity,
     itemCombinationRules
 ) {
