@@ -39,6 +39,10 @@ class Number extends Column
         if (isset($dataSource['data']['items'])) {
             $fieldName = $this->getData('name');
             foreach ($dataSource['data']['items'] as & $item) {
+                if (empty($item[$fieldName])) {
+                    continue;
+                }
+
                 $carrier = $this->carrierFactory->create($item['carrier_code']);
                 if ($carrier instanceof AbstractCarrierOnline) {
                     $trackingInfo = $carrier->getTrackingInfo($item[$fieldName]);
