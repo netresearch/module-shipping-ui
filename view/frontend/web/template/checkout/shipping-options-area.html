@@ -1,7 +1,7 @@
 <div class="nrshipping-settings-container" data-bind="visible: visible, style: { borderColor: displayColor() }"
      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <fieldset class="fieldset nrshipping-settings" data-bind="css: getCarrierCode()">
-        <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"></img>
+        <img if="image()" data-bind="attr: {src: image, width: imageWidth}" height="auto"/>
         <h3 if="title()" text="title" class="title"></h3>
 
         <!-- ko foreach: { data: commentsBefore, as: 'comment' } -->
