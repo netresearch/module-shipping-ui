@@ -81,6 +81,7 @@ Title,Titel
 Yes,Ja
 "You must not refer to a parcel shop, postal office, or similar.","Paket-Shops, Postfilialen oder ähnliches dürfen nicht "
 "Your input must not include one of the following: ","Ihre Angaben dürfen folgende Zeichen nicht enthalten: "
+"Your shipping option selection is invalid. Please review the shipping information.","Ihre Versandoptions-Auswahl ist ungültig. Bitte prüfen Sie die Versandinformationen."
 "Your shipping option selections could not be saved.","Ihre Versandoptions-Auswahl konnte nicht gespeichert werden."
 "Zip/Postal Code",Postleitzahl
 and,und

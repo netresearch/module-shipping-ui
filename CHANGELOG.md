@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Fixed
+
+- Stop suppressing downstream place-order errors in checkout, reported via [#8](https://github.com/netresearch/module-shipping-ui/issues/8).
+
 ## 2.4.2
 
 ### Fixed
 
-- Replace self-closing tags in Knockout templates, reported via [#7](https://github.com/netresearch/module-shipping-ui/issues/7)
+- Replace self-closing tags in Knockout templates, reported via [#7](https://github.com/netresearch/module-shipping-ui/issues/7).
 
 ## 2.4.1
 
