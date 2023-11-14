@@ -81,6 +81,7 @@ Title,Title
 Yes,Yes
 "You must not refer to a parcel shop, postal office, or similar.","You must not refer to a parcel shop, postal office, or similar."
 "Your input must not include one of the following: ","Your input must not include one of the following: "
+"Your shipping option selection is invalid. Please review the shipping information.","Your shipping option selection is invalid. Please review your shipping information."
 "Your shipping option selections could not be saved.","Your shipping option selections could not be saved."
 "Zip/Postal Code","Zip/Postal Code"
 and,and
