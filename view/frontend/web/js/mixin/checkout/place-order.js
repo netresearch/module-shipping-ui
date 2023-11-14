@@ -17,26 +17,34 @@ define([
      * */
     return function (placeOrder) {
         return wrapper.wrap(placeOrder, function (originalAction, paymentData, messageContainer) {
-            var selectionsValid = validateSelection(),
-                selectionsCompatible = validateCompatibility();
+            var isValid = validateSelection() && validateCompatibility();
 
             return $.Deferred(function (deferred) {
-                if (selectionsValid && selectionsCompatible) {
+                if (isValid) {
                     updateSelection()
-                    .done(function () {
-                        originalAction(paymentData, messageContainer).done(deferred.resolve);
-                    })
-                    .fail(deferred.reject);
+                        .fail(function () {
+                            messageContainer.addErrorMessage(
+                                {'message': $t('Your shipping option selections could not be saved.')}
+                            );
+                            deferred.reject();
+                        })
+                        .done(function () {
+                            originalAction(paymentData, messageContainer)
+                                .done(function (response) {
+                                    if (response.responseType !== 'error') {
+                                        storage.clear();
+                                    }
+                                    deferred.resolve(response);
+                                })
+                                .fail(deferred.reject);
+                        });
                 } else {
+                    messageContainer.addErrorMessage(
+                        {'message': $t('Your shipping option selection is invalid. Please review the shipping information.')}
+                    );
                     deferred.reject();
                 }
-            })
-            .done(storage.clear)
-            .fail(function () {
-                messageContainer.addErrorMessage({
-                    'message': $t('Your shipping option selections could not be saved.')
-                });
-            });
+            }).promise();
         });
     };
 });
