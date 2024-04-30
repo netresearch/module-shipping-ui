@@ -8,13 +8,12 @@ This module should not be required directly or used standalone. All functionalit
 Requirements
 ------------
 
-* PHP >= 7.2
+* PHP >= 8.2
 
 Compatibility
 -------------
 
-* Magento >= 2.3.5
-* Magento >= 2.4.0
+* Magento >= 2.4.7
 
 License
 -------
@@ -24,4 +23,4 @@ License
 Copyright
 ---------
 
-(c) 2023 Netresearch DTT GmbH
+(c) 2024 Netresearch DTT GmbH
