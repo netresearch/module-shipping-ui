@@ -17,32 +17,32 @@ $item = $block->getItem();
             <span class="product-item-photo">
                 <span class="product-image-container">
                     <img class="product-image-photo"
-                         src="<?= $block->escapeUrl($viewModel->getProductThumbnailUrl($item)) ?>"
-                         alt="<?= $block->escapeHtml($item->getName()) ?>"
+                         src="<?= $escaper->escapeUrl($viewModel->getProductThumbnailUrl($item)) ?>"
+                         alt="<?= $escaper->escapeHtml($item->getName()) ?>"
                     />
                 </span>
             </span>
             <div class="product-item-details">
-                <strong class="product name product-item-name"><?= $block->escapeHtml($item->getName()) ?></strong>
+                <strong class="product name product-item-name"><?= $escaper->escapeHtml($item->getName()) ?></strong>
                 <?php if ($options = $block->getItemOptions()): ?>
                 <dl class="item options">
-                    <?php foreach ($options as $option) : ?>
-                        <dt><?= $block->escapeHtml($option['label']) ?></dt>
+                    <?php foreach ($options as $option): ?>
+                        <dt><?= $escaper->escapeHtml($option['label']) ?></dt>
                         <?php if (!$block->getPrintStatus()): ?>
                             <?php $formattedOptionValue = $block->getFormatedOptionValue($option) ?>
                             <dd<?php if (isset($formattedOptionValue['full_view'])): ?> class="tooltip wrapper"<?php endif; ?>>
-                                <?= $block->escapeHtml($formattedOptionValue['value']) ?>
+                                <?= $escaper->escapeHtml($formattedOptionValue['value']) ?>
                                 <?php if (isset($formattedOptionValue['full_view'])): ?>
                                     <div class="tooltip content">
                                         <dl class="item options">
-                                            <dt><?= $block->escapeHtml($option['label']) ?></dt>
-                                            <dd><?= $block->escapeHtml($formattedOptionValue['full_view']) ?></dd>
+                                            <dt><?= $escaper->escapeHtml($option['label']) ?></dt>
+                                            <dd><?= $escaper->escapeHtml($formattedOptionValue['full_view']) ?></dd>
                                         </dl>
                                     </div>
                                 <?php endif; ?>
                             </dd>
                         <?php else: ?>
-                            <dd><?= $block->escapeHtml((isset($option['print_value']) ? $option['print_value'] : $option['value'])) ?></dd>
+                            <dd><?= $escaper->escapeHtml((isset($option['print_value']) ? $option['print_value'] : $option['value'])) ?></dd>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </dl>
@@ -54,7 +54,7 @@ $item = $block->getItem();
                 <?php endif; ?>
             </div>
         </td>
-        <td class="col sku"><?= $block->escapeHtml($item->getSku()) ?></td>
+        <td class="col sku"><?= $escaper->escapeHtml($item->getSku()) ?></td>
         <td class="col qty">
             <div id="qty_block_<?= /* @noEscape */ (int) $item->getEntityId() ?>">
                 <div class="control">
@@ -63,7 +63,7 @@ $item = $block->getItem();
                            name="shipments[<?= /* @noEscape */ (int) $item->getParentId() ?>][items][<?= /* @noEscape */ (int) $item->getEntityId() ?>]"
                            value="0">
                 </div>
-                <label for="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" class="label"><span><?= $block->escapeHtml(__('%1 Items Shipped', (int) $item->getQty())) ?></span></label>
+                <label for="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" class="label"><span><?= $escaper->escapeHtml(__('%1 Items Shipped', (int) $item->getQty())) ?></span></label>
             </div>
         </td>
     </tr>

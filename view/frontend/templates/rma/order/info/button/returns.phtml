@@ -9,5 +9,5 @@ $viewModel = $block->getData('viewModel');
 $url = $viewModel->getReturnCreateUrl();
 ?>
 <?php if ($url): ?>
-    <a href="<?= $block->escapeUrl($url) ?>" class="action return"><span><?= $block->escapeHtml(__('Create Return Label')) ?></span></a>
+    <a href="<?= $escaper->escapeUrl($url) ?>" class="action return"><span><?= $escaper->escapeHtml(__('Create Return Label')) ?></span></a>
 <?php endif; ?>
