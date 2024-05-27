@@ -16,25 +16,25 @@ $deliveryAddressLines = $locationViewModel->getAddressLines($orderId);
 <?php if (!empty($services)): ?>
     <section class="nrshipping-selected-services">
         <div class="section-title">
-            <span class="title"><?= $block->escapeHtml(__('Shipping Services')) ?></span>
+            <span class="title"><?= $escaper->escapeHtml(__('Shipping Services')) ?></span>
         </div>
         <div class="section-content">
             <div class="section-item">
                 <table class="data-table">
                     <tbody>
-                    <?php foreach ($services as $idx => $service) : ?>
+                    <?php foreach ($services as $idx => $service): ?>
                         <tr class="col-<?= /* @noEscape */ (int) $idx ?>">
-                            <td class="label"><?= $block->escapeHtml($service['label']) ?></td>
-                            <td><?= $block->escapeHtml($service['value']) ?></td>
+                            <td class="label"><?= $escaper->escapeHtml($service['label']) ?></td>
+                            <td><?= $escaper->escapeHtml($service['value']) ?></td>
                         </tr>
                     <?php endforeach; ?>
 
-                    <?php if (!empty($deliveryAddressLines)) : ?>
+                    <?php if (!empty($deliveryAddressLines)): ?>
                     <tr>
-                        <th><?= $block->escapeHtml(__('Location Address')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Location Address')) ?></th>
                         <td>
-                            <?php foreach ($deliveryAddressLines as $addressLine) : ?>
-                                <div><?= $block->escapeHtml($addressLine) ?></div>
+                            <?php foreach ($deliveryAddressLines as $addressLine): ?>
+                                <div><?= $escaper->escapeHtml($addressLine) ?></div>
                             <?php endforeach; ?>
                         </td>
                     </tr>
