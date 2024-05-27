@@ -11,18 +11,18 @@ $viewModel = $block->getData('viewModel');
 <?php foreach ($viewModel->getPNGDocuments() as $document): ?>
     <div class="box box-qr">
         <strong class="box-title">
-            <span><?= $block->escapeHtml($document->getTitle()) ?></span>
+            <span><?= $escaper->escapeHtml($document->getTitle()) ?></span>
         </strong>
         <div class="box-actions">
             <a class="action" href="data:image/png;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>"
-               download="<?= $block->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
-                <?= $block->escapeHtml(__('Download %1', $document->getTitle())) ?>
+               download="<?= $escaper->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
+                <?= $escaper->escapeHtml(__('Download %1', $document->getTitle())) ?>
             </a>
         </div>
         <div class="box-content">
             <a href="data:image/png;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>"
-               download="<?= $block->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
-                <img src="data:image/png;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>" alt="<?= $block->escapeHtml($document->getTitle()) ?>"/>
+               download="<?= $escaper->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
+                <img src="data:image/png;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>" alt="<?= $escaper->escapeHtml($document->getTitle()) ?>"/>
             </a>
         </div>
     </div>
