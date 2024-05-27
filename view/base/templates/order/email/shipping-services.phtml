@@ -8,7 +8,7 @@
 $locationViewModel = $block->getData('locationViewModel');
 $selectionViewModel = $block->getData('selectionViewModel');
 
-$orderId = (int) $this->getData('order_id');
+$orderId = (int) $block->getData('order_id');
 
 $services = $orderId ? $selectionViewModel->getValues($orderId) : [];
 $deliveryAddressLines = $locationViewModel->getAddressLines($orderId);
@@ -17,21 +17,21 @@ $deliveryAddressLines = $locationViewModel->getAddressLines($orderId);
     <table class="order-details nrshipping-selected-services">
         <tr>
             <td class="address-details">
-                <h3><?= $block->escapeHtml(__('Shipping Services')) ?></h3>
+                <h3><?= $escaper->escapeHtml(__('Shipping Services')) ?></h3>
                 <table class="order-information-table">
                     <tbody>
-                    <?php foreach ($services as $service) : ?>
+                    <?php foreach ($services as $service): ?>
                         <tr>
-                            <th><?= $block->escapeHtml($service['label']) ?></th>
-                            <td style="padding: 0 0 0 10px"><?= $block->escapeHtml($service['value']) ?></td>
+                            <th><?= $escaper->escapeHtml($service['label']) ?></th>
+                            <td style="padding: 0 0 0 10px"><?= $escaper->escapeHtml($service['value']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                     <?php if (!empty($deliveryAddressLines)): ?>
                         <tr>
-                            <th><?= $block->escapeHtml(__('Location Address')) ?></th>
+                            <th><?= $escaper->escapeHtml(__('Location Address')) ?></th>
                             <td>
-                                <?php foreach ($deliveryAddressLines as $addressLine) : ?>
-                                    <div><?= $block->escapeHtml($addressLine) ?></div>
+                                <?php foreach ($deliveryAddressLines as $addressLine): ?>
+                                    <div><?= $escaper->escapeHtml($addressLine) ?></div>
                                 <?php endforeach; ?>
                             </td>
                         </tr>

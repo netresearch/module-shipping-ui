@@ -11,25 +11,25 @@ $viewModel = $block->getData('viewModel');
 
 <div class="block block-return-label-info">
     <div class="block-title">
-        <strong><?= $block->escapeHtml(__('Labels for your return shipment (shipment number %1)', $viewModel->getTrackingNumber())) ?></strong>
+        <strong><?= $escaper->escapeHtml(__('Labels for your return shipment (shipment number %1)', $viewModel->getTrackingNumber())) ?></strong>
     </div>
     <div class="block-content">
         <?php // render pdf label preview ?>
         <?php foreach ($viewModel->getPdfDocuments() as $document): ?>
             <div class="box box-pdf">
                 <strong class="box-title">
-                    <span><?= $block->escapeHtml($document->getTitle()) ?></span>
+                    <span><?= $escaper->escapeHtml($document->getTitle()) ?></span>
                 </strong>
                 <div class="box-actions">
                     <a class="action" href="data:application/pdf;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>"
-                       download="<?= $block->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
-                        <?= $block->escapeHtml(__('Download %1', $document->getTitle())) ?>
+                       download="<?= $escaper->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
+                        <?= $escaper->escapeHtml(__('Download %1', $document->getTitle())) ?>
                     </a>
                 </div>
                 <div class="box-content">
                     <a href="data:application/pdf;base64,<?= /* @noEscape */ base64_encode($document->getLabelData()) ?>"
-                       download="<?= $block->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
-                        <img src="<?= /* @noEscape */ $viewModel->getPdfSampleImageUrl() ?>" alt="<?= $block->escapeHtml($document->getTitle()) ?>"/>
+                       download="<?= $escaper->escapeHtmlAttr($viewModel->getFileName($document)) ?>">
+                        <img src="<?= /* @noEscape */ $viewModel->getPdfSampleImageUrl() ?>" alt="<?= $escaper->escapeHtml($document->getTitle()) ?>"/>
                     </a>
                 </div>
             </div>

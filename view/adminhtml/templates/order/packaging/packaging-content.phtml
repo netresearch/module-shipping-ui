@@ -19,8 +19,8 @@ $viewModel = $block->getData('popup_view_model');
                         "component": "Netresearch_ShippingUi/js/packaging/controller",
                         "config": {
                             "shippingSettings": <?= /* @noEscape */ json_encode($viewModel->getShippingSettings()) ?>,
-                            "submitUrl": "<?= $block->escapeUrl($viewModel->getSubmitUrl()) ?>",
-                            "successRedirect": "<?= $block->escapeUrl($viewModel->getSuccessRedirectUrl()) ?>"
+                            "submitUrl": "<?= $escaper->escapeUrl($viewModel->getSubmitUrl()) ?>",
+                            "successRedirect": "<?= $escaper->escapeUrl($viewModel->getSuccessRedirectUrl()) ?>"
                         }
                     }
                 }
