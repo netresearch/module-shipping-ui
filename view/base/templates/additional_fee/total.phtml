@@ -10,39 +10,39 @@
 $viewModel = $block->getViewModel();
 $source = $block->getParentBlock()->getSource();
 ?>
-<?php if ($viewModel->displayBoth($source)) : ?>
+<?php if ($viewModel->displayBoth($source)): ?>
     <tr class="row-totals">
         <td <?= /* @noEscape */ $block->getData('label_properties') ?> scope="row">
-            <?= $block->escapeHtml($viewModel->getLabel($source)) ?> <?= $block->escapeHtml(__('(Excl. Tax)')) ?>
+            <?= $escaper->escapeHtml($viewModel->getLabel($source)) ?> <?= $escaper->escapeHtml(__('(Excl. Tax)')) ?>
         </td>
         <td <?= /* @noEscape */ $block->getData('value_properties') ?>>
-            <?= $block->escapeHtml($viewModel->getPriceExclTax($source), ['span']) ?>
+            <?= $escaper->escapeHtml($viewModel->getPriceExclTax($source), ['span']) ?>
         </td>
     </tr>
     <tr class="row-totals">
         <td <?= /* @noEscape */ $block->getData('label_properties') ?> scope="row">
-            <?= $block->escapeHtml($viewModel->getLabel($source)) ?> <?= $block->escapeHtml(__('(Incl. Tax)')) ?>
+            <?= $escaper->escapeHtml($viewModel->getLabel($source)) ?> <?= $escaper->escapeHtml(__('(Incl. Tax)')) ?>
         </td>
         <td <?= /* @noEscape */ $block->getData('value_properties') ?>>
-            <?= $block->escapeHtml($viewModel->getPriceInclTax($source), ['span']) ?>
+            <?= $escaper->escapeHtml($viewModel->getPriceInclTax($source), ['span']) ?>
         </td>
     </tr>
-<?php elseif ($viewModel->displayIncludeTax($source)) : ?>
+<?php elseif ($viewModel->displayIncludeTax($source)): ?>
     <tr>
         <td <?= /* @noEscape */ $block->getData('label_properties') ?> scope="row">
-            <?= $block->escapeHtml($viewModel->getLabel($source)) ?>
+            <?= $escaper->escapeHtml($viewModel->getLabel($source)) ?>
         </td>
         <td <?= /* @noEscape */ $block->getData('value_properties') ?>>
-            <?= $block->escapeHtml($viewModel->getPriceInclTax($source), ['span']) ?>
+            <?= $escaper->escapeHtml($viewModel->getPriceInclTax($source), ['span']) ?>
         </td>
     </tr>
-<?php else : ?>
+<?php else: ?>
     <tr class="row-totals">
         <td <?= /* @noEscape */ $block->getData('label_properties') ?> scope="row">
-            <?= $block->escapeHtml($viewModel->getLabel($source)) ?>
+            <?= $escaper->escapeHtml($viewModel->getLabel($source)) ?>
         </td>
         <td <?= /* @noEscape */ $block->getData('value_properties') ?>>
-            <?= $block->escapeHtml($viewModel->getPriceExclTax($source), ['span']) ?>
+            <?= $escaper->escapeHtml($viewModel->getPriceExclTax($source), ['span']) ?>
         </td>
     </tr>
 <?php endif; ?>

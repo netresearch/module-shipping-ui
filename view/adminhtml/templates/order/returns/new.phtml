@@ -10,7 +10,7 @@ $carriers = $viewModel->getCarriers();
 ?>
 
 <div class="entry-edit form-inline">
-    <form action="<?= $block->escapeUrl($viewModel->getSubmitUrl()) ?>"
+    <form action="<?= $escaper->escapeUrl($viewModel->getSubmitUrl()) ?>"
           method="post"
           enctype="multipart/form-data"
           class="form-returns-create"
@@ -20,7 +20,7 @@ $carriers = $viewModel->getCarriers();
         <?= $block->getBlockHtml('formkey') ?>
         <?php if (\count($carriers) === 1): ?>
             <div>
-                <input type="hidden" name="carrier_code" value="<?= $block->escapeHtmlAttr(array_keys($carriers)[0]) ?>">
+                <input type="hidden" name="carrier_code" value="<?= $escaper->escapeHtmlAttr(array_keys($carriers)[0]) ?>">
             </div>
         <?php elseif (\count($carriers) > 1): ?>
             <section id="form-return-carrier" class="admin__page-section">
@@ -29,16 +29,16 @@ $carriers = $viewModel->getCarriers();
                         <div class="admin__page-section-item order-items">
                             <fieldset class="admin__fieldset">
                                 <legend class="admin__legend">
-                                    <span><?= $block->escapeHtml(__('Shipping Method')) ?></span>
+                                    <span><?= $escaper->escapeHtml(__('Shipping Method')) ?></span>
                                 </legend>
                                 <div class="admin__field">
                                     <?php foreach ($carriers as $carrierCode => $carrierTitle): ?>
                                         <div class="admin__field-control control admin_field-option">
                                             <input type="radio"
-                                                   id="<?= $block->escapeHtmlAttr($carrierCode) ?>"
+                                                   id="<?= $escaper->escapeHtmlAttr($carrierCode) ?>"
                                                    name="carrier_code"
-                                                   value="<?= $block->escapeHtmlAttr($carrierCode) ?>">
-                                            <label for="<?= $block->escapeHtmlAttr($carrierCode) ?>" class="admin__field-label"><?= $block->escapeHtml($carrierTitle) ?></label>
+                                                   value="<?= $escaper->escapeHtmlAttr($carrierCode) ?>">
+                                            <label for="<?= $escaper->escapeHtmlAttr($carrierCode) ?>" class="admin__field-label"><?= $escaper->escapeHtml($carrierTitle) ?></label>
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -54,41 +54,41 @@ $carriers = $viewModel->getCarriers();
                 <div class="admin__page-section-item order-billing-address">
                     <fieldset class="admin__fieldset">
                         <legend class="admin__legend">
-                            <span><?= $block->escapeHtml(__('Contact Information')) ?></span>
+                            <span><?= $escaper->escapeHtml(__('Contact Information')) ?></span>
                         </legend>
                         <div class="admin__field field-name-firstname required">
-                            <label class="label admin__field-label" for="firstname"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
+                            <label class="label admin__field-label" for="firstname"><span><?= $escaper->escapeHtml(__('First Name')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[firstname]" id="firstname" class="maximum-length-255 minimum-length-1 validate-length input-text required-entry admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getFirstname()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('First Name')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getFirstname()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('First Name')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field  field-name-lastname required">
-                            <label class="label admin__field-label" for="lastname"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
+                            <label class="label admin__field-label" for="lastname"><span><?= $escaper->escapeHtml(__('Last Name')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[lastname]" id="lastname" class="maximum-length-255 minimum-length-1 validate-length input-text required-entry admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getLastname()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getLastname()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Last Name')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field company">
-                            <label for="company" class="label admin__field-label"><span><?= $block->escapeHtml(__('Company')) ?></span></label>
+                            <label for="company" class="label admin__field-label"><span><?= $escaper->escapeHtml(__('Company')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[company]" id="company" class="maximum-length-255 minimum-length-1 validate-length input-text admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getCompany()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Company')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getCompany()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Company')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field email required">
-                            <label for="email" class="label admin__field-label"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                            <label for="email" class="label admin__field-label"><span><?= $escaper->escapeHtml(__('Email')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[email]" id="email" class="validate-email admin__control-text input-text required-entry _required"
-                                       value="<?= $block->escapeHtmlAttr($address->getEmail()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Email')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getEmail()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>">
                             </div>
                         </div>
                     </fieldset>
@@ -96,62 +96,62 @@ $carriers = $viewModel->getCarriers();
 
                 <div class="admin__page-section-item order-shipping-address">
                     <fieldset class="admin__fieldset">
-                        <legend class="admin__legend"><span><?= $block->escapeHtml(__('Address')) ?></span></legend>
+                        <legend class="admin__legend"><span><?= $escaper->escapeHtml(__('Address')) ?></span></legend>
                         <div class="admin__field  street required">
-                            <label for="street_name" class="label admin__field-label"><span><?= $block->escapeHtml(__('Street Name')) ?></span></label>
+                            <label for="street_name" class="label admin__field-label"><span><?= $escaper->escapeHtml(__('Street Name')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[street_name]"
                                        id="street_name" class="input-text admin__control-text required-entry"
-                                       value="<?= $block->escapeHtmlAttr($recipientStreet->getName()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Street Name')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($recipientStreet->getName()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Street Name')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field streetnumber required">
-                            <label for="street_number" class="label admin__field-label"><span><?= $block->escapeHtml(__('Street Number')) ?></span></label>
+                            <label for="street_number" class="label admin__field-label"><span><?= $escaper->escapeHtml(__('Street Number')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[street_number]"
                                        id="street_number" class="input-text admin__control-text required-entry"
-                                       value="<?= $block->escapeHtmlAttr($recipientStreet->getNumber()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Street Number')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($recipientStreet->getNumber()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Street Number')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field country required">
-                            <label class="label admin__field-label" for="country"><span><span><?= $block->escapeHtml(__('Country')) ?></span></label>
+                            <label class="label admin__field-label" for="country"><span><span><?= $escaper->escapeHtml(__('Country')) ?></span></label>
                             <div class="admin__field-control control">
                                 <?= /* @noEscape */ $viewModel->getCountrySelectHtml($address->getCountryId(), 'address[country]') ?>
                             </div>
                         </div>
 
                         <div class="admin__field region">
-                            <label class="label admin__field-label" for="region_id"><span><?= $block->escapeHtml(__('State/Province')) ?></span></label>
+                            <label class="label admin__field-label" for="region_id"><span><?= $escaper->escapeHtml(__('State/Province')) ?></span></label>
                             <div class="admin__field-control control">
                                 <select name="address[region_id]" id="region_id" class="admin__control-select validate-select region_id"
-                                        title="<?= $block->escapeHtmlAttr(__('State/Province')) ?>">
-                                    <option value=""><?= $block->escapeHtml(__('Please select a region, state or province.')) ?></option>
+                                        title="<?= $escaper->escapeHtmlAttr(__('State/Province')) ?>">
+                                    <option value=""><?= $escaper->escapeHtml(__('Please select a region, state or province.')) ?></option>
                                 </select>
                                 <input type="text" name="address[region]" id="region" class="input-text validate-not-number-first admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getRegion()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('State/Province')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getRegion()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('State/Province')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field city required">
-                            <label class="label admin__field-label" for="city"><span><?= $block->escapeHtml(__('City')) ?></span></label>
+                            <label class="label admin__field-label" for="city"><span><?= $escaper->escapeHtml(__('City')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[city]" id="city" class="required-entry maximum-length-255 minimum-length-1 validate-length input-text admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getCity()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('City')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getCity()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('City')) ?>">
                             </div>
                         </div>
 
                         <div class="admin__field zip required">
-                            <label class="label admin__field-label" for="zip"><span><?= $block->escapeHtml(__('Zip/Postal Code')) ?></span></label>
+                            <label class="label admin__field-label" for="zip"><span><?= $escaper->escapeHtml(__('Zip/Postal Code')) ?></span></label>
                             <div class="admin__field-control control">
                                 <input type="text" name="address[postcode]" id="zip" class="input-text validate-zip-international required-entry admin__control-text"
-                                       value="<?= $block->escapeHtmlAttr($address->getPostcode()) ?>"
-                                       title="<?= $block->escapeHtmlAttr(__('Zip/Postal Code')) ?>">
+                                       value="<?= $escaper->escapeHtmlAttr($address->getPostcode()) ?>"
+                                       title="<?= $escaper->escapeHtmlAttr(__('Zip/Postal Code')) ?>">
                                 <div role="alert" class="message warning" style="display:none">
                                     <span></span>
                                 </div>
@@ -165,11 +165,11 @@ $carriers = $viewModel->getCarriers();
             <div class="admin__page-section-content">
                 <div class="admin__page-section-item order-items">
                     <fieldset class="admin__fieldset">
-                        <legend class="admin__legend"><span><?= $block->escapeHtml(__('Return Items Information')) ?></span></legend>
+                        <legend class="admin__legend"><span><?= $escaper->escapeHtml(__('Return Items Information')) ?></span></legend>
 
                         <?php foreach ($shipments as $shipment): ?>
                             <table class="data-table admin__table-primary">
-                                <caption><?= $block->escapeHtml(__('Shipment # %1', $shipment->getIncrementId())) ?></caption>
+                                <caption><?= $escaper->escapeHtml(__('Shipment # %1', $shipment->getIncrementId())) ?></caption>
                                 <colgroup>
                                     <col class="col-ret-item">
                                     <col class="col-ret-sku">
@@ -177,9 +177,9 @@ $carriers = $viewModel->getCarriers();
                                 </colgroup>
                                 <thead>
                                 <tr>
-                                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Item')) ?></span></th>
-                                    <th class="col sku" scope="col"><span><?= $block->escapeHtml(__('SKU')) ?></span></th>
-                                    <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                                    <th class="col item" scope="col"><span><?= $escaper->escapeHtml(__('Item')) ?></span></th>
+                                    <th class="col sku" scope="col"><span><?= $escaper->escapeHtml(__('SKU')) ?></span></th>
+                                    <th class="col qty" scope="col"><span><?= $escaper->escapeHtml(__('Qty')) ?></span></th>
                                 </tr>
                                 </thead>
                                 <?php $items = $shipment->getAllItems(); ?>
@@ -193,7 +193,7 @@ $carriers = $viewModel->getCarriers();
                                                    class="admin__control-text required-entry validate-number-range number-range-0-<?= /* @noEscape */ (int) $item->getQty() ?>"
                                                    name="shipments[<?= /* @noEscape */ (int) $item->getParentId() ?>][items][<?= /* @noEscape */ (int) $item->getEntityId() ?>]"
                                                    value="0">
-                                            <label for="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" class="label"><span><?= $block->escapeHtml(__('%1 Items Shipped', (int) $item->getQty())) ?></span></label>
+                                            <label for="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" class="label"><span><?= $escaper->escapeHtml(__('%1 Items Shipped', (int) $item->getQty())) ?></span></label>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

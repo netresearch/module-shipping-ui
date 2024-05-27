@@ -17,11 +17,11 @@ $carrierCode = strtok((string) $block->getShipment()->getOrder()->getShippingMet
                 "name": "packaging-popup-modal",
                 "target": "#packaging-window",
                 "options": {
-                    "title": "<?= $block->escapeHtml(__('Shipment Setup')) ?>",
+                    "title": "<?= $escaper->escapeHtml(__('Shipment Setup')) ?>",
                     "type": "slide",
                     "buttons": []
                 },
-                "carrierCode": "<?= $block->escapeHtml($carrierCode) ?>"
+                "carrierCode": "<?= $escaper->escapeHtml($carrierCode) ?>"
             }
         }
     }
