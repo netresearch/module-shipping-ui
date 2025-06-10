@@ -41,6 +41,7 @@ class AddRecipientStreetInfoBlock implements ObserverInterface
      * @param Observer $observer
      * @throws LocalizedException
      */
+    #[\Override]
     public function execute(Observer $observer)
     {
         $applicableActions = [
@@ -69,7 +70,7 @@ class AddRecipientStreetInfoBlock implements ObserverInterface
 
         try {
             $recipientStreet = $this->recipientStreetRepository->get((int) $shippingAddress->getId());
-        } catch (NoSuchEntityException $e) {
+        } catch (NoSuchEntityException) {
             // no recipient street for this order
             return;
         }

@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.5.0
+
+### Added
+
+- Rector and PHPStan configuration files for code quality analysis
+- Support for PHP 8.3 and 8.4 features
+
+### Changed
+
+- Modernized development workflow with automated code analysis
+- Enhanced code quality tooling setup
+
+### Removed
+
+- Support for PHP 8.2
+
 ## 2.4.5
 
 Magento 2.4.7 compatibility release
