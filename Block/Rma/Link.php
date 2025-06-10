@@ -31,6 +31,7 @@ class Link extends SortLink
         parent::__construct($context, $defaultPath, $data);
     }
 
+    #[\Override]
     protected function _toHtml(): string
     {
         if (!$this->viewModel->getTrackCollection()->getSize()) {

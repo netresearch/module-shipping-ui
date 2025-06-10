@@ -71,7 +71,7 @@ class CustomerUrlProvider
         );
     }
 
-    public function getViewUrl(int $trackId = null): string
+    public function getViewUrl(?int $trackId = null): string
     {
         if ($this->customerSession->isLoggedIn()) {
             $routePath = 'nrshipping/rma/view';

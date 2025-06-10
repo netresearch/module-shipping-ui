@@ -17,6 +17,7 @@ class SaveButton implements ButtonProviderInterface
      *
      * @return string[]
      */
+    #[\Override]
     public function getButtonData(): array
     {
         return [
