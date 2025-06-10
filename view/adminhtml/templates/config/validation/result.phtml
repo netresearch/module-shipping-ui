@@ -27,7 +27,7 @@ $currentGroup = '';
     <?php endif; ?>
 
     <tr>
-        <td class="icon-<?= $row->getStatus() ?>"></td>
+        <td class="icon-<?= $escaper->escapeHtmlAttr($row->getStatus()) ?>"></td>
         <td class="name"><?= $escaper->escapeHtml($row->getName()) ?></td>
         <td><?= $escaper->escapeHtml($row->getMessage(), ['em']) ?></td>
     </tr>

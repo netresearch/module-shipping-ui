@@ -26,7 +26,7 @@ class CountrySelect extends Data
      * @see getCountryHtmlSelect
      */
     public function getCountrySelect(
-        string $value = null,
+        ?string $value = null,
         string $name = 'country_id',
         string $id = 'country'
     ): Select {

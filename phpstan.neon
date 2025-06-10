@@ -1,0 +1,11 @@
+parameters:
+    level: 1
+    paths:
+       - Block/
+       - Component/
+       - DataProvider/
+       - Model/
+       - Observer/
+       - ViewModel/
+    ignoreErrors:
+        - '#Setter methods like.*setTemplate\(\) are deprecated in Block classes#'

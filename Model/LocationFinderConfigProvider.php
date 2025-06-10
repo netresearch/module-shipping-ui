@@ -34,11 +34,12 @@ class LocationFinderConfigProvider implements ConfigProviderInterface
     /**
      * @return string[]
      */
+    #[\Override]
     public function getConfig(): array
     {
         try {
             $storeId = $this->storeManager->getStore()->getId();
-        } catch (NoSuchEntityException $exception) {
+        } catch (NoSuchEntityException) {
             $storeId = 0;
         }
 

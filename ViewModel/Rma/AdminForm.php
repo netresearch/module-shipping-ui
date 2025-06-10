@@ -71,6 +71,7 @@ class AdminForm extends AbstractForm implements ArgumentInterface
      * @return string
      * @throws LocalizedException
      */
+    #[\Override]
     public function getCountrySelectHtml(string $defaultCountry = '', string $name = 'country_id'): string
     {
         /** @var CountrySelect $block */
@@ -80,11 +81,13 @@ class AdminForm extends AbstractForm implements ArgumentInterface
         return $selectBlock->getHtml();
     }
 
+    #[\Override]
     public function getBackUrl(): string
     {
         return $this->urlProvider->getBackUrl();
     }
 
+    #[\Override]
     public function getSubmitUrl(): string
     {
         return $this->urlProvider->getSubmitUrl();

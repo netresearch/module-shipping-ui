@@ -30,16 +30,19 @@ class ReturnShipments extends ListText implements TabInterface
         parent::__construct($context, $data);
     }
 
+    #[\Override]
     public function getTabLabel()
     {
         return __('Return Shipments');
     }
 
+    #[\Override]
     public function getTabTitle()
     {
         return __('Return Shipments');
     }
 
+    #[\Override]
     public function canShowTab()
     {
         $trackCollection = $this->collectionFactory->create();
@@ -48,6 +51,7 @@ class ReturnShipments extends ListText implements TabInterface
         return (bool) $trackCollection->getSize();
     }
 
+    #[\Override]
     public function isHidden()
     {
         return false;

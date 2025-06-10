@@ -29,6 +29,7 @@ class BackButton extends Button
         parent::__construct($context, $data);
     }
 
+    #[\Override]
     protected function _beforeToHtml(): Button
     {
         $this->setData('label', __('Back'));

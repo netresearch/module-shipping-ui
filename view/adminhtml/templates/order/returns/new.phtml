@@ -186,8 +186,8 @@ $carriers = $viewModel->getCarriers();
                                 <tbody>
                                     <?php foreach ($items as $item): ?>
                                     <tr>
-                                        <td><?= $item->getName() ?></td>
-                                        <td><?= $item->getSku() ?></td>
+                                        <td><?= $escaper->escapeHtml($item->getName()) ?></td>
+                                        <td><?= $escaper->escapeHtml($item->getSku()) ?></td>
                                         <td>
                                             <input type="number" id="item-<?= /* @noEscape */ (int) $item->getEntityId() ?>-qty" min="0" max="<?= /* @noEscape */ (int) $item->getQty() ?>"
                                                    class="admin__control-text required-entry validate-number-range number-range-0-<?= /* @noEscape */ (int) $item->getQty() ?>"

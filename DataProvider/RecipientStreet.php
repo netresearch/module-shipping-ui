@@ -56,6 +56,7 @@ class RecipientStreet extends AbstractDataProvider
      *
      * @return mixed[][]
      */
+    #[\Override]
     public function getData(): array
     {
         $data = parent::getData();
@@ -71,6 +72,7 @@ class RecipientStreet extends AbstractDataProvider
     /**
      * @return AbstractCollection
      */
+    #[\Override]
     public function getCollection(): AbstractCollection
     {
         if ($this->collection === null) {

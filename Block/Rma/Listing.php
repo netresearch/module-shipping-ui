@@ -30,6 +30,7 @@ class Listing extends Template
         parent::__construct($context, $data);
     }
 
+    #[\Override]
     protected function _prepareLayout()
     {
         parent::_prepareLayout();

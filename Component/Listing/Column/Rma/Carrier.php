@@ -31,6 +31,7 @@ class Carrier extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    #[\Override]
     public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {

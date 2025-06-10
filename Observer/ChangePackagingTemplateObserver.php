@@ -42,6 +42,7 @@ class ChangePackagingTemplateObserver implements ObserverInterface
     /**
      * @param Observer $observer
      */
+    #[\Override]
     public function execute(Observer $observer)
     {
         $block = $observer->getEvent()->getBlock();

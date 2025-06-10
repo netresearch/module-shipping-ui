@@ -63,6 +63,7 @@ class AdditionalFee extends DefaultTotal
      *
      * @return string[][]
      */
+    #[\Override]
     public function getTotalsForDisplay(): array
     {
         $storeId = $this->getOrder()->getStoreId();

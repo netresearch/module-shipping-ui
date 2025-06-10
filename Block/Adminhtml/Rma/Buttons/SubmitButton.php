@@ -12,6 +12,7 @@ use Magento\Backend\Block\Widget\Button;
 
 class SubmitButton extends Button
 {
+    #[\Override]
     protected function _beforeToHtml(): Button
     {
         $this->setData('label', __('Submit'));
