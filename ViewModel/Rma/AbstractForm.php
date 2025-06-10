@@ -161,7 +161,7 @@ abstract class AbstractForm implements ArgumentInterface
     {
         try {
             return $this->directoryHelper->getRegionJson();
-        } catch (NoSuchEntityException $exception) {
+        } catch (NoSuchEntityException) {
             return 'false';
         }
     }

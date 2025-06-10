@@ -18,6 +18,7 @@ class Options implements OptionSourceInterface
      *
      * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
      */
+    #[\Override]
     public function toOptionArray(): array
     {
         $options = [

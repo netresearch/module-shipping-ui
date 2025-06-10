@@ -32,6 +32,7 @@ class Actions extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    #[\Override]
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {

@@ -95,6 +95,7 @@ class CustomerForm extends AbstractForm implements ArgumentInterface
      * @param string $name
      * @return string
      */
+    #[\Override]
     public function getCountrySelectHtml(string $defaultCountry = '', string $name = 'country_id'): string
     {
         /** @var DirectoryBlock $block */
@@ -102,11 +103,13 @@ class CustomerForm extends AbstractForm implements ArgumentInterface
         return $block->getCountryHtmlSelect($defaultCountry, $name);
     }
 
+    #[\Override]
     public function getBackUrl(): string
     {
         return $this->urlProvider->getBackUrl();
     }
 
+    #[\Override]
     public function getSubmitUrl(): string
     {
         return $this->urlProvider->getSubmitUrl();
@@ -137,7 +140,7 @@ class CustomerForm extends AbstractForm implements ArgumentInterface
     {
         try {
             $product = $this->productRepository->get($item->getSku());
-        } catch (NoSuchEntityException $exception) {
+        } catch (NoSuchEntityException) {
             $product = $item->getOrderItem()->getProduct();
         }
 
