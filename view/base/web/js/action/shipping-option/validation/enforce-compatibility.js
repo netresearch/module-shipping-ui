@@ -56,7 +56,7 @@ define([
                         }
                         if (rule.trigger_value.startsWith('/') && rule.trigger_value.endsWith('/')) {
                             // Regex value
-                            return selection.value.search(new RegExp(rule.trigger_value.slice(1, -1))) !== -1;
+                            return selection.value.search(new RegExp(rule.trigger_value.slice(1, -1))) !== -1; // nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- admin-configured trigger_value, low ReDoS risk (CI-398 phase-2 review)
                         }
                         // Otherwise, we need an exact match */
                         return selection.value === rule.trigger_value;

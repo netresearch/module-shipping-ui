@@ -1,0 +1,2 @@
+# CI-398 phase-2: vendored third-party JS is not our code, exclude from SAST
+view/base/web/lib/

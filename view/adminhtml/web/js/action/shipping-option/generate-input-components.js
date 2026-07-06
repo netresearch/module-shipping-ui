@@ -112,7 +112,7 @@ define([
                 }
                 if (compatibilityRule.trigger_value.startsWith('/') && compatibilityRule.trigger_value.endsWith('/')) {
                     // Regex value
-                    return value.search(new RegExp(compatibilityRule.trigger_value.slice(1, -1))) !== -1;
+                    return value.search(new RegExp(compatibilityRule.trigger_value.slice(1, -1))) !== -1; // nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- admin-configured trigger_value, low ReDoS risk (CI-398 phase-2 review)
                 }
                 // Otherwise, we need an exact match */
                 return value === compatibilityRule.trigger_value;
@@ -139,7 +139,7 @@ define([
          * In the packaging popup we want all inputs to save their selections into their section separately.
          * We can evaluate the component names for that and fetch the first containers name after the root container.
          */
-        var section = parentName.match(new RegExp('([a-z]+)(\\.[0-9]+)?\\.' + shippingOption.code))[1] || '';
+        var section = parentName.match(new RegExp('([a-z]+)(\\.[0-9]+)?\\.' + shippingOption.code))[1] || ''; // nosemgrep: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp -- literal pattern + admin shippingOption.code, low ReDoS risk (CI-398 phase-2 review)
         var shippingOptionInputLayout = _.map(
             shippingOption.inputs,
             function (/** @type {NrShippingInput} */ shippingOptionInput) {
