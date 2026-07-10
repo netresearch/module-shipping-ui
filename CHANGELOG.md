@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## 2.8.0
+
+### Fixed
+
+- Stop the compatibility rule engine from re-enabling inputs that were disabled server-side
+- Show service option tooltips in the packaging popup
+- Keep tooltips of disabled fields legible and within the viewport
+
 ## 2.7.1
 
 ### Changed
