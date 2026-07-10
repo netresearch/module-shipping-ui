@@ -161,6 +161,7 @@ define([
                     itemId: itemId,
                     name: shippingOptionInput.code,
                     disabled: shippingOptionInput.disabled,
+                    lockedByServer: shippingOptionInput.locked,
                     section: section,
                     visible: determineDefaultVisibility(section, shippingOption, shippingOptionInput, itemId)
                 };

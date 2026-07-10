@@ -22,6 +22,33 @@ define([
             this._super();
             this.modal = $(this.target);
             this.initModal();
+            this.initTooltipPositioning();
+        },
+
+        /**
+         * Flip a service/package option tooltip to open upward when there isn't enough
+         * room below it in the viewport, so its content is never clipped off-screen.
+         */
+        initTooltipPositioning: function () {
+            this.window.on('mouseenter focusin', '.admin__field-tooltip-action', function (event) {
+                var $action = $(event.currentTarget),
+                    $tooltip = $action.closest('.admin__field-tooltip'),
+                    $content = $tooltip.find('.admin__field-tooltip-content'),
+                    actionRect,
+                    contentHeight;
+
+                if (!$content.length) {
+                    return;
+                }
+
+                actionRect = $action[0].getBoundingClientRect();
+                contentHeight = $content[0].scrollHeight || 200;
+
+                $tooltip.toggleClass(
+                    'nrshipping-tooltip-flip-up',
+                    actionRect.bottom + 4 + contentHeight > window.innerHeight
+                );
+            });
         },
 
         /**

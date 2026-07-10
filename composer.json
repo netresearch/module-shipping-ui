@@ -36,6 +36,6 @@
         "magento/module-theme": "^101.1.8",
         "magento/module-ui": "^101.2.8",
         "magento/module-shipping": "^100.4.8",
-        "netresearch/module-shipping-core": "^4.0.0"
+        "netresearch/module-shipping-core": "^5.0.0"
     }
 }

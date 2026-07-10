@@ -125,7 +125,10 @@ define([
         /** Set disabled/visible status of individual shipping option inputs */
         _.each(_.uniq(actionLists.enable), function (shippingOptionCode) {
             doActionOnInputComponents(shippingOptionCode, function (input) {
-                input.disabled(false);
+                /** Inputs whose disabled state was fixed server-side must stay disabled. */
+                if (!input.lockedByServer) {
+                    input.disabled(false);
+                }
             });
         });
         _.each(_.uniq(actionLists.disable), function (shippingOptionCode) {

@@ -239,6 +239,7 @@
 
                     .admin__field-tooltip-action {
                         margin-left: 5px;
+                        top: -7px;
                     }
                 }
 
@@ -250,6 +251,24 @@
                 select,
                 textarea {
                     width: 100%;
+                }
+
+                // Magento's global `._disabled` utility (theme-adminhtml-backend/_utilities.less)
+                // sets opacity: .5 directly on this field wrapper. Opacity composites the whole
+                // subtree as one rendering layer, so a descendant can't opt back in to full
+                // visibility by setting its own opacity - the tooltip content explaining WHY the
+                // field is disabled would be dimmed along with it. Reset it here and re-apply the
+                // dimmed look only to the label and the checkbox choice. The tooltip icon and
+                // content stay fully visible: on a disabled field the tooltip carries the reason
+                // for the disable, so its trigger must remain discoverable
+                // (package options, service options, item options all share this markup).
+                &._disabled {
+                    opacity: 1;
+
+                    > .label,
+                    .choice.nrshipping-checkbox {
+                        opacity: .5;
+                    }
                 }
             }
         }
@@ -265,12 +284,51 @@
             .shipping-option-wrapper {
                 .field {
                     width: 100%;
+                    position: relative;
                 }
             }
 
-            .field-note,
-            .admin__field-tooltip {
+            .field-note {
                 display: none;
+            }
+
+            .choice.nrshipping-checkbox {
+                display: inline-block;
+            }
+
+            .admin__field-tooltip {
+                display: inline-block;
+
+                .admin__field-tooltip-action {
+                    margin-left: 5px;
+                }
+
+                .admin__field-tooltip-content {
+                    // anchor to the field and open downward by default: the popup scroll pane
+                    // irrecoverably clips bubbles that open above the icon
+                    top: ~'calc(100% + 4px)';
+                    bottom: auto;
+                    left: 0;
+                    right: auto;
+                    max-width: 320px;
+                    // safety net if a field sits close to the viewport edge and JS
+                    // (packaging.js#positionTooltip) can't flip it in time
+                    max-height: 50vh;
+                    overflow-y: auto;
+                    z-index: 10;
+
+                    // the stock arrow points down at the icon; meaningless for a bubble below the field
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                // set by packaging.js#positionTooltip when there isn't enough room below
+                &.nrshipping-tooltip-flip-up .admin__field-tooltip-content {
+                    top: auto;
+                    bottom: ~'calc(100% + 12px)';
+                }
             }
         }
     }
